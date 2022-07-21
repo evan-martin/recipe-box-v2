@@ -2,6 +2,8 @@ import { Link } from 'react-router-dom';
 import axios from "axios";
 import { TextField, MenuItem } from '@mui/material';
 
+import DeleteModal from '../components/delete-modal';
+
 function Update({ recipe, setRecipe }) {
 
     const handleUpdate = (event) => {
@@ -120,6 +122,8 @@ function Update({ recipe, setRecipe }) {
             <Link to={`/${recipe._id}`}>
                 <button>Cancel</button>
             </Link>
+
+            <DeleteModal recipe_id={recipe._id} />
 
         </>
     )
