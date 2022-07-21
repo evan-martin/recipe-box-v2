@@ -8,10 +8,11 @@ import {
 import Home from './pages/home'
 import Read from './pages/read'
 import Update from './pages/update'
+import Create from './pages/create'
 import './App.css'
 
 function App() {
-  
+
   const { data, error, isLoaded } = useRecipes();
   const [recipe, setRecipe] = useLocalStorage({});
 
@@ -29,6 +30,7 @@ function App() {
             <Route path="/" element={<Home data={data} setRecipe={setRecipe} />}/>
             <Route path="/:id" element={<Read recipe = {recipe} />} />
             <Route path="/update/:id" element={<Update recipe = {recipe} setRecipe={setRecipe} />} />
+            <Route path="/new-recipe" element={<Create setRecipe={setRecipe} />} />
           </Routes>
         </BrowserRouter>
         <h1>Footer</h1>

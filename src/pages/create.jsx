@@ -2,9 +2,9 @@ import { Link } from 'react-router-dom';
 import axios from "axios";
 import { TextField, MenuItem } from '@mui/material';
 
-function Update({ recipe, setRecipe }) {
+function Create({ setRecipe }) {
 
-    const handleUpdate = (event) => {
+    const handleCreate = (event) => {
         event.preventDefault();
         let name = event.target.elements.name.value;
         let category = event.target.elements.category.value;
@@ -13,14 +13,14 @@ function Update({ recipe, setRecipe }) {
         let method = event.target.elements.method.value;
         let notes = event.target.elements.notes.value;
         setRecipe({
-            ...recipe, 'name': name,
+            'name': name,
             'category': category,
             'imageURL': imageURL,
             'ingredients': ingredients,
             'method': method,
             'notes': notes,
         });
-        axios.put("https://recipe-box-master-api.herokuapp.com/" + recipe._id, {
+        axios.post("https://recipe-box-master-api.herokuapp.com/", {
             name,
             category,
             imageURL,
@@ -29,15 +29,15 @@ function Update({ recipe, setRecipe }) {
             notes
         })
             .then(() => {
-                window.location.href = "/" + recipe._id;
+                window.location.href = "/";
             });
     }
 
     return (
 
         <>
-            <h2>Editing {recipe.name}</h2>
-            <form onSubmit={handleUpdate}>
+            <h2>New Recipe</h2>
+            <form onSubmit={handleCreate}>
 
                 <TextField
                     id="name"
@@ -46,7 +46,7 @@ function Update({ recipe, setRecipe }) {
                     variant="outlined"
                     type="text"
                     name="name"
-                    defaultValue={recipe.name}
+                    required={true}
                 />
 
                 <TextField
@@ -57,7 +57,6 @@ function Update({ recipe, setRecipe }) {
                     size="medium"
                     helperText="Select a category"
                     name="category"
-                    defaultValue={recipe.category}
                 >
                     <MenuItem value="pasta" >Pasta</MenuItem>
                     <MenuItem value="chicken" >Chicken</MenuItem>
@@ -76,7 +75,6 @@ function Update({ recipe, setRecipe }) {
                     variant="outlined"
                     type="text"
                     name="imageURL"
-                    defaultValue={recipe.imageURL}
                 />
 
                 <TextField
@@ -88,7 +86,6 @@ function Update({ recipe, setRecipe }) {
                     multiline
                     rows={20}
                     variant="outlined"
-                    defaultValue={recipe.ingredients}
                 />
 
                 <TextField
@@ -100,7 +97,6 @@ function Update({ recipe, setRecipe }) {
                     multiline
                     rows={20}
                     variant="outlined"
-                    defaultValue={recipe.method}
                 />
 
                 <TextField
@@ -112,12 +108,11 @@ function Update({ recipe, setRecipe }) {
                     multiline
                     rows={10}
                     variant="outlined"
-                    defaultValue={recipe.notes}
                 />
 
-                <button type="submit">Update</button>
+                <button type="submit">Create</button>
             </form>
-            <Link to={`/${recipe._id}`}>
+            <Link to={`/`}>
                 <button>Cancel</button>
             </Link>
 
@@ -125,4 +120,4 @@ function Update({ recipe, setRecipe }) {
     )
 }
 
-export default Update
+export default Create

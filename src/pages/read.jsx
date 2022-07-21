@@ -3,7 +3,7 @@ import { Link } from "react-router-dom"
 function Read({ recipe }) {
 
     return (
-        <div>
+        <>
             <p>{recipe.name}</p>
             <p>{recipe.ingredients}</p>
             <p>{recipe.method}</p>
@@ -13,7 +13,7 @@ function Read({ recipe }) {
             <Link to="/">
                 <button>Home</button>
             </Link>
-        </div>
+        </>
     )
 }
 
