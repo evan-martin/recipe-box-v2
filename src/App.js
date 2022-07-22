@@ -10,6 +10,7 @@ import Read from './pages/read'
 import Update from './pages/update'
 import Create from './pages/create'
 import Header from './components/header'
+import Footer from './components/footer'
 import './App.css'
 
 function App() {
@@ -24,17 +25,20 @@ function App() {
   } else {
 
     return (
-      <BrowserRouter>
-        <Header />
-        <Routes>
-          <Route path="/" element={<Home data={data} setRecipe={setRecipe} />} />
-          <Route path="/:id" element={<Read recipe={recipe} />} />
-          <Route path="/update/:id" element={<Update recipe={recipe} setRecipe={setRecipe} />} />
-          <Route path="/new-recipe" element={<Create setRecipe={setRecipe} />} />
-        </Routes>
-
-        <h1>Footer</h1>
-      </BrowserRouter>
+      <div className='app'>
+        <BrowserRouter>
+          <Header />
+          <div className='content-container'>
+            <Routes>
+              <Route path="/" element={<Home data={data} setRecipe={setRecipe} />} />
+              <Route path="/:id" element={<Read recipe={recipe} />} />
+              <Route path="/update/:id" element={<Update recipe={recipe} setRecipe={setRecipe} />} />
+              <Route path="/new-recipe" element={<Create setRecipe={setRecipe} />} />
+            </Routes>
+          </div>
+          <Footer />
+        </BrowserRouter>
+      </div>
     );
   }
 }
