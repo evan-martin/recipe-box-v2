@@ -30,7 +30,10 @@ function Home({ data, setRecipe }) {
     return (
 
         <>
+            <div className='banner'></div>
+
             <div className='search-bar'>
+                <h1>Recipe Box</h1>
                 <TextField
                     placeholder='Search'
                     InputProps={{
@@ -41,7 +44,7 @@ function Home({ data, setRecipe }) {
                         ),
                     }}
                     variant='outlined'
-                    size='small'
+                    size='large'
                     type='search'
                     defaultValue={searchTerm.trim()}
                     onChange={event => setSearchTerm(' ' + event.target.value)}

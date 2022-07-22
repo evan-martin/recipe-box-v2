@@ -1,9 +1,30 @@
-.search-bar{
+.banner {
+    width: 100vw;
+    position: absolute;
+    left:0;
+    background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.6)), url("../../assets/spices.jpg");
+    background-size: cover;
+    height: 25em;
+    background-position-y: 50%;
+}
+
+.search-bar {
     display: flex;
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
+    filter: invert(100%);
+    -webkit-filter: invert(100%);
+    padding-top: 8em;
+
+    h1{
+        font-family: Roboto-Slab, sans-serif;
+        font-size: 2.5em;
+    }
 }
 
 .grid {
+    padding-top: 10em;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -17,7 +38,7 @@
     }
 }
 
-.fab{
+.fab {
     position: fixed;
     bottom: 2em;
     right: .5em;

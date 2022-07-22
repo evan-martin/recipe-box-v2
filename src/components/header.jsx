@@ -9,7 +9,7 @@ function Header() {
         <div className="header">
             <div className="logo">
                 <Link to="/" style={{ textDecoration: "none" }}>
-                    <h1>RecipeBox</h1>
+                    <h1>RB</h1>
                 </Link>
                 <RecipeBoxIcon className="recipe-box-icon" />
             </div>
