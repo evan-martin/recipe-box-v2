@@ -1,0 +1,19 @@
+.grid {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    .grid-item {
+        margin: 2em 2em 4.5em 2em;
+        width: 350px;
+        height: 400px;
+        cursor: pointer;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .grid .grid-item {
+        margin: 2em 0 4.5em 0;
+    }
+}
