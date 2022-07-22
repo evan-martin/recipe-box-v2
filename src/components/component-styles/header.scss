@@ -1,0 +1,44 @@
+.header {
+    display: flex;
+    background-color: rgb(30, 30, 30);
+    top: 0;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    font-size: .875em;
+
+    .logo {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        margin-left: 3em;
+
+        h1 {
+            padding-right: 0.5em;
+            color: white;
+            font-family: "Roboto Slab", sans-serif;
+          }
+
+          .recipe-box-icon {
+            filter: invert(100%);
+            -webkit-filter: invert(100%);
+          }
+    }
+
+    .menu{
+        cursor: pointer;
+        margin-right: 3em;
+        filter: invert(100%);
+        -webkit-filter: invert(100%);
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .header .logo {
+      margin-left: 1em;
+    }
+
+    .header .menu{
+        margin-right: 1em;
+    }
+  }

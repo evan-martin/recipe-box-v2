@@ -7,6 +7,7 @@ function Read({ recipe }) {
             <p>{recipe.name}</p>
             <p>{recipe.ingredients}</p>
             <p>{recipe.method}</p>
+            <p>{recipe.notes}</p>
             <Link to={`/update/${recipe._id}`}>
                 <button>Edit</button>
             </Link>
