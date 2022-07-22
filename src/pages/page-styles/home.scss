@@ -12,6 +12,12 @@
     }
 }
 
+.fab{
+    position: fixed;
+    bottom: 2em;
+    right: .5em;
+}
+
 @media only screen and (max-width: 600px) {
     .grid .grid-item {
         margin: 2em 0 4.5em 0;

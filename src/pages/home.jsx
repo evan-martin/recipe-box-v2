@@ -1,8 +1,16 @@
-import { Link } from 'react-router-dom'
 import RecipeCard from '../components/recipe-card';
+import Fab from '@mui/material/Fab';
+import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward';
 import './page-styles/home.scss'
 
 function Home({ data, setRecipe }) {
+
+    const scrollToTop = () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    };
 
     return (
         <>
@@ -13,9 +21,11 @@ function Home({ data, setRecipe }) {
                     </div>
                 ))}
             </div>
-            <Link to='/new-recipe'>
-                <button>New Recipe</button>
-            </Link>
+            <div className='fab'>
+                <Fab color='secondary' onClick={scrollToTop}>
+                    <ArrowUpwardIcon />
+                </Fab>
+            </div>
         </>
     )
 }
