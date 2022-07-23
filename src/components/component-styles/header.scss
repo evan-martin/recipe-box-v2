@@ -11,14 +11,18 @@
         align-items: center;
         margin-left: 3em;
 
+
         h1 {
             color: white;
             font-family: "Roboto Slab", sans-serif;
+            font-size: 1.5em;
           }
 
           .recipe-box-icon {
             filter: invert(100%);
             -webkit-filter: invert(100%);
+            -webkit-transform: scaleX(-1);
+            transform: scaleX(-1);
           }
     }
 
@@ -33,6 +37,10 @@
 @media only screen and (max-width: 600px) {
     .header .logo {
       margin-left: 1em;
+
+      h1{
+        display: none;
+      }
     }
 
     .header .menu{

@@ -7,12 +7,11 @@ function Header() {
 
     return (
         <div className="header">
-            <div className="logo">
-                <Link to="/" style={{ textDecoration: "none" }}>
-                    <h1>RB</h1>
+                <Link className="logo" to="/" style={{ textDecoration: "none" }}>
+                    <RecipeBoxIcon className="recipe-box-icon" />
+                    {/* <h1>RecipeBox</h1> */}
+                    <h1>Home</h1>
                 </Link>
-                <RecipeBoxIcon className="recipe-box-icon" />
-            </div>
             <div className="menu">
                 <MenuDrawer />
             </div>
