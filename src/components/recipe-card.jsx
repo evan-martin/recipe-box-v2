@@ -12,7 +12,7 @@ function RecipeCard({ recipe, setRecipe }) {
 
     return (
         <Link to={recipe._id} onClick={() => { setRecipe(recipe) }} style={{ textDecoration: 'none' }} >
-            <img className='card-image' src={validateImageURL(recipe.imageURL)} />
+            <img className='card-image' src={validateImageURL(recipe.imageURL)} alt='recipe' />
             <p className='card-title'>{recipe.name}</p>
         </Link>
     )

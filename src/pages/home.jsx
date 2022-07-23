@@ -20,7 +20,7 @@ function Home({ data, setRecipe }) {
     };
 
     const filteredRecipes = data.filter(recipe =>
-        recipe.name.toLowerCase().includes(searchTerm.toLowerCase())
+        recipe.name.toLowerCase().includes(searchTerm.toLowerCase().trim())
         || recipe.ingredients.toLowerCase().includes(searchTerm.toLowerCase())
         || recipe.method.toLowerCase().includes(searchTerm.toLowerCase())
     );
