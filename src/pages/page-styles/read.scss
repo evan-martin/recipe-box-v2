@@ -2,10 +2,12 @@
     padding-top: 3em;
     display: flex;
     flex-direction: column;
-    font-family: "Roboto Slab", sans-serif;
+
     min-height: 92vh;
     padding-left: 1em;
     padding-right: 1em;
+    max-width: 1400px;
+    margin:auto;
   
     .read-header-container {
       display: flex;
@@ -52,8 +54,11 @@
         padding-left: 2em;
   
         .ingredients-content {
-          font-family: "Jost", sans-serif;
-          font-size: 1.1em;
+          // font-family: "Jost", sans-serif;
+          // font-family: "League Spartan", sans-serif;
+          // font-weight: 300;
+          font-size: 1.3em;
+          line-height: 1.2em;
         }
       }
   
@@ -67,8 +72,8 @@
         }
   
         .method-content {
-          font-family: "Jost", sans-serif;
-          font-size: 1.1em;
+          // font-family: "Jost", sans-serif;
+          font-size: 1.3em;
         }
       }
     }
@@ -81,7 +86,7 @@
       white-space: pre-wrap;
   
       .notes {
-        font-family: "Jost", sans-serif;
+        // font-family: "Jost", sans-serif;
       }
     }
   

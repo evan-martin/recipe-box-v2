@@ -6,15 +6,15 @@
     justify-content: space-between;
     font-size: .875em;
 
+
     .logo {
         display: flex;
         align-items: center;
-        margin-left: 3em;
+        margin-left: 2em;
 
 
         h1 {
             color: white;
-            font-family: "Roboto Slab", sans-serif;
             font-size: 1.5em;
           }
 
@@ -22,7 +22,7 @@
             filter: invert(100%);
             -webkit-filter: invert(100%);
             -webkit-transform: scaleX(-1);
-            transform: scaleX(-1);
+            transform: scale(-.7, .7);
           }
     }
 
@@ -36,12 +36,8 @@
 
 @media only screen and (max-width: 600px) {
     .header .logo {
-      margin-left: 1em;
-
-      h1{
-        display: none;
-      }
-    }
+      margin-left: 0em;
+        }
 
     .header .menu{
         margin-right: 1em;

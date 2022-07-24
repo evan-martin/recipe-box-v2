@@ -9,15 +9,13 @@ function Header() {
         <div className="header">
                 <Link className="logo" to="/" style={{ textDecoration: "none" }}>
                     <RecipeBoxIcon className="recipe-box-icon" />
-                    {/* <h1>RecipeBox</h1> */}
-                    <h1>Home</h1>
+                    <h1>RB</h1>
                 </Link>
             <div className="menu">
                 <MenuDrawer />
             </div>
         </div>
     );
-
 }
 
 export default Header

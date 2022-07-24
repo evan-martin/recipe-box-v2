@@ -2,11 +2,12 @@
     position: relative;
     min-height: 100vh;
     background-color: rgba(0,0,0,0.15);
+    font-family: "Cormorant Garamond", sans-serif;
 }
 
 .content-container{
     padding-bottom: 8em;
-    max-width: 1280px;
+    /* max-width: 1280px; */
     margin: auto;
     /* background-color: #f7f6f3; */
 }
