@@ -36,10 +36,10 @@ function Read({ recipe }) {
             </div>
             <div className="read-button-bar">
                 <Link to={`/update/${recipe._id}`}>
-                    <Button variant="contained" color="secondary">Edit</Button>
+                    <Button variant="outlined" color="secondary">Edit</Button>
                 </Link>
                 <Link to="/">
-                    <Button variant="contained" color="primary">Back</Button>
+                    <Button variant="outlined" color="primary">Back</Button>
                 </Link>
             </div>
         </div>
