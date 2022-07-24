@@ -8,6 +8,7 @@
   max-width: 1400px;
   margin: auto;
 
+
   .read-header-container {
     display: flex;
     flex-direction: row;
@@ -88,6 +89,13 @@
       // font-family: "Jost", sans-serif;
     }
   }
+
+  .read-button-bar{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: #f7f6f3;
+  }
 }
 
 @media only screen and (max-width: 600px) {
@@ -130,9 +138,6 @@
   }
 
   .read-button-bar {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    padding-top: 1em;
+    padding: 1em;
   }
 }

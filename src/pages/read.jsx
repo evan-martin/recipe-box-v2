@@ -35,10 +35,10 @@ function Read({ recipe }) {
                 <p className="notes">{recipe.notes}</p>
             </div>
             <div className="read-button-bar">
-                <Link to={`/update/${recipe._id}`}>
+                <Link to={`/update/${recipe._id}`} style={{ textDecoration: "none" }}>
                     <Button variant="outlined" color="secondary">Edit</Button>
                 </Link>
-                <Link to="/">
+                <Link to="/" style={{ textDecoration: "none" }}>
                     <Button variant="outlined" color="primary">Back</Button>
                 </Link>
             </div>
