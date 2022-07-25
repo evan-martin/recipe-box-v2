@@ -1,8 +1,9 @@
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import { Divider, Button } from "@mui/material"
 import './page-styles/read.scss'
 
 function Read({ recipe }) {
+    const navigate = useNavigate();
 
     return (
         <div className="read-container">
@@ -38,9 +39,7 @@ function Read({ recipe }) {
                 <Link to={`/update/${recipe._id}`} style={{ textDecoration: "none" }}>
                     <Button variant="outlined" color="secondary">Edit</Button>
                 </Link>
-                <Link to="/" style={{ textDecoration: "none" }}>
-                    <Button variant="outlined" color="primary">Back</Button>
-                </Link>
+                <Button onClick={() => navigate(-1)} variant="outlined" color="primary">Back</Button>
             </div>
         </div>
     )

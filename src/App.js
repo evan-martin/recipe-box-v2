@@ -11,6 +11,8 @@ import Update from './pages/update'
 import Create from './pages/create'
 import Header from './components/header'
 import Footer from './components/footer'
+import Loading from './components/loading'
+import Error from './components/error'
 import ScrollToTop from './components/scroll-to-top'
 import './App.css'
 
@@ -20,9 +22,9 @@ function App() {
   const [recipe, setRecipe] = useLocalStorage({});
 
   if (error) {
-    return <div>Error: {error.message}</div>;
+    return <Error error={error.message} />;
   } else if (!isLoaded) {
-    return <div>Loading...</div>;
+    return <Loading />;
   } else {
 
     return (

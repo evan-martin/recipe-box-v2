@@ -122,7 +122,7 @@ function Update({ recipe, setRecipe }) {
                     <DeleteModal recipe_id={recipe._id} />
 
                     <div className='button-group'>
-                        <Link to={`/${recipe._id}`}>
+                        <Link to={`/${recipe._id}`} style={{ textDecoration: "none" }}>
                             <Button variant="outlined" color="secondary">Cancel</Button>
                         </Link>
                         <Button type="submit" variant="outlined">Update</Button>
