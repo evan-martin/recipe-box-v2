@@ -1,0 +1,17 @@
+.form-container {
+    max-width: 1400px;
+    margin: auto;
+    padding: 1em;
+    background-color: #f7f6f3;
+
+    .button-bar {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+
+        .button-group {
+            display: flex;
+            flex-direction: row;
+        }
+    }
+}

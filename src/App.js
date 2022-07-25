@@ -11,6 +11,7 @@ import Update from './pages/update'
 import Create from './pages/create'
 import Header from './components/header'
 import Footer from './components/footer'
+import ScrollToTop from './components/scroll-to-top'
 import './App.css'
 
 function App() {
@@ -29,12 +30,14 @@ function App() {
         <BrowserRouter>
           <Header />
           <div className='content-container'>
-            <Routes>
-              <Route path="/" element={<Home data={data} setRecipe={setRecipe} />} />
-              <Route path="/:id" element={<Read recipe={recipe} />} />
-              <Route path="/update/:id" element={<Update recipe={recipe} setRecipe={setRecipe} />} />
-              <Route path="/new-recipe" element={<Create setRecipe={setRecipe} />} />
-            </Routes>
+            <ScrollToTop>
+              <Routes>
+                <Route path="/" element={<Home data={data} setRecipe={setRecipe} />} />
+                <Route path="/:id" element={<Read recipe={recipe} />} />
+                <Route path="/update/:id" element={<Update recipe={recipe} setRecipe={setRecipe} />} />
+                <Route path="/new-recipe" element={<Create setRecipe={setRecipe} />} />
+              </Routes>
+            </ScrollToTop>
           </div>
           <Footer />
         </BrowserRouter>

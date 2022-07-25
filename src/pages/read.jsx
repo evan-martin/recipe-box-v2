@@ -5,9 +5,9 @@ import './page-styles/read.scss'
 function Read({ recipe }) {
 
     return (
-        <div class="read-container">
+        <div className="read-container">
             <div className="read-header-container">
-                <div class="read-image-container">
+                <div className="read-image-container">
                     <img className="read-image"
                         src={recipe.imageURL}
                         alt={recipe.name}

@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import axios from "axios";
-import { TextField, MenuItem } from '@mui/material';
+import { TextField, MenuItem, Button } from '@mui/material';
 
 function Create({ setRecipe }) {
 
@@ -35,19 +35,20 @@ function Create({ setRecipe }) {
 
     return (
 
-        <>
+        <div className='form-container'>
             <h2>New Recipe</h2>
             <form onSubmit={handleCreate}>
-
-                <TextField
-                    id="name"
-                    margin="normal"
-                    label="Name"
-                    variant="outlined"
-                    type="text"
-                    name="name"
-                    required={true}
-                />
+                <div className='name-container'>
+                    <TextField
+                        id="name"
+                        margin="normal"
+                        label="Name"
+                        variant="outlined"
+                        type="text"
+                        name="name"
+                        required={true}
+                    />
+                </div>
 
                 <TextField
                     select
@@ -109,14 +110,16 @@ function Create({ setRecipe }) {
                     rows={10}
                     variant="outlined"
                 />
-
-                <button type="submit">Create</button>
+                <div className='button-bar' >        
+                    <Link to={`/`}>
+                        <Button variant="outlined" color='secondary'>Cancel</Button>
+                    </Link>
+                    <Button variant="outlined"  type="submit">Create</Button>
+                </div>
             </form>
-            <Link to={`/`}>
-                <button>Cancel</button>
-            </Link>
 
-        </>
+
+        </div>
     )
 }
 

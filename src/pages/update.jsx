@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom';
 import axios from "axios";
-import { TextField, MenuItem } from '@mui/material';
-
+import { TextField, MenuItem, Button } from '@mui/material';
 import DeleteModal from '../components/delete-modal';
+import './page-styles/create-update.scss'
 
 function Update({ recipe, setRecipe }) {
 
@@ -37,19 +37,21 @@ function Update({ recipe, setRecipe }) {
 
     return (
 
-        <>
+        <div className='form-container'>
             <h2>Editing {recipe.name}</h2>
             <form onSubmit={handleUpdate}>
 
-                <TextField
-                    id="name"
-                    margin="normal"
-                    label="Name"
-                    variant="outlined"
-                    type="text"
-                    name="name"
-                    defaultValue={recipe.name}
-                />
+                <div className='name-container'>
+                    <TextField
+                        id="name"
+                        margin="normal"
+                        label="Name"
+                        variant="outlined"
+                        type="text"
+                        name="name"
+                        defaultValue={recipe.name}
+                    />
+                </div>
 
                 <TextField
                     select
@@ -116,16 +118,18 @@ function Update({ recipe, setRecipe }) {
                     variant="outlined"
                     defaultValue={recipe.notes}
                 />
+                <div className='button-bar'>
+                    <DeleteModal recipe_id={recipe._id} />
 
-                <button type="submit">Update</button>
+                    <div className='button-group'>
+                        <Link to={`/${recipe._id}`}>
+                            <Button variant="outlined" color="secondary">Cancel</Button>
+                        </Link>
+                        <Button type="submit" variant="outlined">Update</Button>
+                    </div>
+                </div>
             </form>
-            <Link to={`/${recipe._id}`}>
-                <button>Cancel</button>
-            </Link>
-
-            <DeleteModal recipe_id={recipe._id} />
-
-        </>
+        </div >
     )
 }
 

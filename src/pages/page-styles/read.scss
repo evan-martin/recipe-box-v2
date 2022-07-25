@@ -1,27 +1,21 @@
 .read-container {
-  padding-top: 3em;
+  padding: 3em 1em 1em 1em;
   display: flex;
   flex-direction: column;
   min-height: 92vh;
-  padding-left: 1em;
-  padding-right: 1em;
   max-width: 1400px;
   margin: auto;
 
 
   .read-header-container {
     display: flex;
-    flex-direction: row;
     align-items: center;
     z-index: 1;
 
     .read-image-container {
-      min-width: 200px;
       width: 200px;
       height: 200px;
-      object-fit: contain;
       border-radius: 50%;
-      z-index: 3;
       border: 20px solid #f7f6f3;
 
       .read-image {
@@ -36,7 +30,6 @@
     .recipe-name {
       padding-top: 3em;
       padding-left: 1em;
-      min-width: 300px;
     }
   }
 
@@ -47,32 +40,23 @@
     background-color: #f7f6f3;
     padding-top: 7em;
     margin-top: -7em;
+    padding-left: 2em;
 
     .ingredients-container {
-      min-width: 50%;
-      padding-right: 1em;
-      padding-left: 2em;
+      min-width: 45%;
+      padding-right: 2em;
+
 
       .ingredients-content {
-        // font-family: "Jost", sans-serif;
-        // font-family: "League Spartan", sans-serif;
-        // font-weight: 300;
         font-size: 1.3em;
-        line-height: 1.2em;
+        line-height: 1.3em;
       }
     }
 
     .method-container {
-      // min-width: 50%;
-      padding-right: 2em;
-      padding-left: 1em;
-
-      .method-heading {
-        display: flex;
-      }
+      min-width: 50%;
 
       .method-content {
-        // font-family: "Jost", sans-serif;
         font-size: 1.3em;
       }
     }
@@ -84,23 +68,21 @@
     padding-left: 2em;
     padding-bottom: 2em;
     white-space: pre-wrap;
-
-    .notes {
-      // font-family: "Jost", sans-serif;
-    }
   }
 
-  .read-button-bar{
+  .read-button-bar {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     background-color: #f7f6f3;
+    padding: 1em;
   }
 }
 
 @media only screen and (max-width: 600px) {
   .read-container {
     padding-top: 1em;
+    padding-bottom: 1em;
 
     .read-header-container {
       flex-direction: column;
@@ -118,26 +100,24 @@
       flex-wrap: wrap;
       padding-top: 12em;
       margin-top: -12em;
+      padding-left: 1em;
+      padding-right: 1em;
 
       .ingredients-container {
         width: 100%;
-        padding-left: 1em;
+        padding-right: 0em;
+
       }
 
       .method-container {
         width: 100%;
-        padding-right: 1em;
       }
     }
 
     .notes-container {
-      padding-right: 1em;
-      padding-left: 1em;
       min-height: 7em;
+      padding-left: 1em;
+      padding-right: 1em;
     }
-  }
-
-  .read-button-bar {
-    padding: 1em;
   }
 }
