@@ -1,14 +1,22 @@
 import { Link } from "react-router-dom";
-import { GitHub } from "@mui/icons-material";
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import GitHubIcon from '@mui/icons-material/GitHub';
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import './component-styles/footer.scss'
 
 function Footer() {
     return (
         <div className="footer">
             <div className="logo">
-                <a href="https://github.com/evan-martin/recipe-box" rel="noopener" style={{ textDecoration: "none" }}>
-                    <h4>Evan Martin</h4>
-                    <GitHub />
+                <p>Evan Martin:</p>
+                <a href="https://www.evan-martin.dev" target="_blank" rel="noopener noreferrer" style={{ textDecoration: "none" }}>
+                    <AccountCircleIcon />
+                </a>
+                <a href="https://github.com/evan-martin/" target="_blank" rel="noopener noreferrer" style={{ textDecoration: "none" }}>
+                    <GitHubIcon />
+                </a>
+                <a href="https://www.linkedin.com/in/evan-martin-2a4ba5225/" target="_blank" rel="noopener noreferrer" style={{ textDecoration: "none" }}>
+                    <LinkedInIcon />
                 </a>
             </div>
             <Link to="/" style={{ textDecoration: "none" }} >

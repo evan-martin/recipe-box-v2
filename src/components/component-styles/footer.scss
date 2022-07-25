@@ -11,15 +11,22 @@
 
     .logo {
         margin-left: 3em;
+        display: flex;
+        flex-direction: row;
 
         a {
             display: flex;
             align-items: center;
             color: white;
+            padding: 3px;
 
             h4 {
                 padding-right: 0.5em;
             }
+        }
+        p {
+            
+            padding-right: 0.5em;
         }
     }
 
