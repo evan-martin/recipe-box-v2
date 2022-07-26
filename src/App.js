@@ -20,6 +20,13 @@ function App() {
 
   const { data, error, isLoaded } = useRecipes();
   const [recipe, setRecipe] = useLocalStorage({});
+  const defaultDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  const [theme, setTheme] = useLocalStorage('theme', defaultDark ? 'dark' : 'light');
+
+  const switchTheme = () => {
+    const newTheme = theme === 'light' ? 'dark' : 'light';
+    setTheme(newTheme);
+  }
 
   if (error) {
     return <Error error={error.message} />;
@@ -28,13 +35,13 @@ function App() {
   } else {
 
     return (
-      <div className='app'>
+      <div className='app' data-theme={theme}>
         <BrowserRouter>
           <Header />
           <div className='content-container'>
             <ScrollToTop>
               <Routes>
-                <Route path="/" element={<Home data={data} setRecipe={setRecipe} />} />
+                <Route path="/" element={<Home data={data} setRecipe={setRecipe} switchTheme={switchTheme}/>} />
                 <Route path="/:id" element={<Read recipe={recipe} />} />
                 <Route path="/update/:id" element={<Update recipe={recipe} setRecipe={setRecipe} />} />
                 <Route path="/new-recipe" element={<Create setRecipe={setRecipe} />} />

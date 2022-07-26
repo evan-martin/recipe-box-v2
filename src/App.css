@@ -1,7 +1,7 @@
 .app{
     position: relative;
     min-height: 100vh;
-    background-color: rgba(0,0,0,0.15);
+    background-color: rgba(0,0,0,0.15); 
     font-family: "Cormorant Garamond", sans-serif;
 }
 

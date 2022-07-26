@@ -5,10 +5,11 @@ import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward';
 import TextField from '@mui/material/TextField';
 import InputAdornment from '@mui/material/InputAdornment';
 import SearchIcon from '@mui/icons-material/Search';
+import ThemeSwitch from '../components/theme-switch';
 import './page-styles/home.scss'
 
 
-function Home({ data, setRecipe }) {
+function Home({ data, setRecipe, switchTheme }) {
 
     const [searchTerm, setSearchTerm] = useLocalStorage('searchTerm', '')
 
@@ -31,7 +32,9 @@ function Home({ data, setRecipe }) {
 
         <>
             <div className='banner'></div>
-
+            <div className='switch'>
+                <ThemeSwitch switchTheme={switchTheme}/>
+            </div>
             <div className='search-bar'>
                 <h1>Recipe Box</h1>
                 <TextField
