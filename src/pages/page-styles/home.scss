@@ -47,6 +47,14 @@
     right: .5em;
 }
 
+@media only screen and (max-width: 1200px) {
+
+    .grid .grid-item {
+        width: 300px;
+        height: 275px;
+    }
+}
+
 @media only screen and (max-width: 600px) {
     .banner{
         height: 20em;
@@ -58,6 +66,7 @@
     .grid .grid-item {
         margin: 2em 0 2.5em 0;
         height: 275px;
+        width: 100%;
     }
 
     .search-bar{
