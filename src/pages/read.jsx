@@ -1,16 +1,23 @@
 import { Link, useNavigate } from "react-router-dom"
 import { Divider, Button } from "@mui/material"
+import defaultRecipeImage from '../assets/default.jpg'
 import './page-styles/read.scss'
 
 function Read({ recipe }) {
     const navigate = useNavigate();
+
+    const validateImageURL = (imageURL) => {
+        if (!imageURL) {
+          return defaultRecipeImage
+        } else return imageURL
+      };
 
     return (
         <div className="read-container">
             <div className="read-header-container">
                 <div className="read-image-container">
                     <img className="read-image"
-                        src={recipe.imageURL}
+                        src={validateImageURL(recipe.imageURL)}
                         alt={recipe.name}
                     />
                 </div>

@@ -1,10 +1,11 @@
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import axios from "axios";
 import { TextField, MenuItem, Button } from '@mui/material';
 import DeleteModal from '../components/delete-modal';
 import './page-styles/create-update.scss'
 
 function Update({ recipe, setRecipe }) {
+    const navigate = useNavigate();
 
     const handleUpdate = (event) => {
         event.preventDefault();
@@ -122,9 +123,7 @@ function Update({ recipe, setRecipe }) {
                     <DeleteModal recipe_id={recipe._id} />
 
                     <div className='button-group'>
-                        <Link to={`/${recipe._id}`} style={{ textDecoration: "none" }}>
-                            <Button variant="outlined" color="secondary">Cancel</Button>
-                        </Link>
+                        <Button onClick={() => navigate(-1)} variant="outlined" color="secondary">Cancel</Button>
                         <Button type="submit" variant="outlined">Update</Button>
                     </div>
                 </div>
