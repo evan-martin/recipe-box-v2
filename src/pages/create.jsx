@@ -6,12 +6,12 @@ function Create({ setRecipe }) {
 
     const handleCreate = (event) => {
         event.preventDefault();
-        let name = event.target.elements.name.value;
-        let category = event.target.elements.category.value;
-        let imageURL = event.target.elements.imageURL.value;
-        let ingredients = event.target.elements.ingredients.value;
-        let method = event.target.elements.method.value;
-        let notes = event.target.elements.notes.value;
+        const name = event.target.elements.name.value;
+        const category = event.target.elements.category.value;
+        const imageURL = event.target.elements.imageURL.value;
+        const ingredients = event.target.elements.ingredients.value;
+        const method = event.target.elements.method.value;
+        const notes = event.target.elements.notes.value;
         setRecipe({
             'name': name,
             'category': category,
@@ -33,10 +33,34 @@ function Create({ setRecipe }) {
             });
     }
 
+    const handleScrape = (event) => {
+        event.preventDefault();
+        const url = event.target.elements.url.value;
+        axios.post("http://localhost:4242/", { url }).then((res) => {
+            console.log(res.data)
+            document.getElementById('name').value = res.data.name
+            document.getElementById('imageURL').value = res.data.imageURL
+            document.getElementById('ingredients').value = res.data.ingredients
+            document.getElementById('method').value = res.data.method
+        });
+
+    }
+
     return (
 
         <div className='form-container'>
             <h2>New Recipe</h2>
+            <form onSubmit={handleScrape}>
+                <TextField
+                    id="url"
+                    margin="normal"
+                    label="url"
+                    variant="outlined"
+                    type="text"
+                    name="url"
+                />
+                <Button type='submit'>scrape!</Button>
+            </form>
             <form onSubmit={handleCreate}>
                 <div className='name-container'>
                     <TextField
@@ -79,6 +103,7 @@ function Create({ setRecipe }) {
                 />
 
                 <TextField
+                    id="ingredients"
                     margin="normal"
                     fullWidth
                     label="Ingredients"
@@ -90,6 +115,7 @@ function Create({ setRecipe }) {
                 />
 
                 <TextField
+                    id='method'
                     margin="normal"
                     fullWidth
                     label="Method"
@@ -110,11 +136,11 @@ function Create({ setRecipe }) {
                     rows={10}
                     variant="outlined"
                 />
-                <div className='button-bar' >        
+                <div className='button-bar' >
                     <Link to={`/`} style={{ textDecoration: "none" }}>
                         <Button variant="outlined" color='secondary'>Cancel</Button>
                     </Link>
-                    <Button variant="outlined"  type="submit">Create</Button>
+                    <Button variant="outlined" type="submit">Create</Button>
                 </div>
             </form>
 
