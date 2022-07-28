@@ -36,12 +36,11 @@ function Create({ setRecipe }) {
     const handleScrape = (event) => {
         event.preventDefault();
         const url = event.target.elements.url.value;
-        axios.post("http://localhost:4242/", { url }).then((res) => {
-            console.log(res.data)
+        axios.post("https://recipe-box-master-api.herokuapp.com/import", { url }).then((res) => {
             document.getElementById('name').value = res.data.name
             document.getElementById('imageURL').value = res.data.imageURL
-            document.getElementById('ingredients').value = res.data.ingredients
-            document.getElementById('method').value = res.data.method
+            document.getElementById('ingredients').value = res.data.ingredients.join("\n")
+            document.getElementById('method').value = res.data.method.join("\n")
         });
 
     }
