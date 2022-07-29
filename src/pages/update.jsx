@@ -32,7 +32,7 @@ function Update({ recipe, setRecipe }) {
             notes
         })
             .then(() => {
-                window.location.href = "/" + recipe._id;
+                navigate(-1)
             });
     }
 

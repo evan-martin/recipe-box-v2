@@ -6,6 +6,7 @@ import TextField from '@mui/material/TextField';
 import InputAdornment from '@mui/material/InputAdornment';
 import SearchIcon from '@mui/icons-material/Search';
 import ThemeSwitch from '../components/theme-switch';
+import CustomInput from '../components/custom-input';
 import './page-styles/home.scss'
 
 
@@ -37,7 +38,7 @@ function Home({ data, setRecipe, switchTheme }) {
             </div>
             <div className='search-bar'>
                 <h1>Recipe Box</h1>
-                <TextField
+                <CustomInput
                     placeholder='Search'
                     InputProps={{
                         startAdornment: (

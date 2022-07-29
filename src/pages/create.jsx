@@ -1,20 +1,22 @@
 import { Link } from 'react-router-dom';
 import axios from "axios";
-import { TextField, MenuItem, Button } from '@mui/material';
+import { TextField, MenuItem, Button, styled } from '@mui/material';
+import CustomInput from '../components/custom-input';
 
 function Create({ setRecipe }) {
 
+
     const handleCreate = (event) => {
         event.preventDefault();
-        const name = event.target.elements.name.value;
-        const category = event.target.elements.category.value;
-        const imageURL = event.target.elements.imageURL.value;
-        const ingredients = event.target.elements.ingredients.value;
-        const method = event.target.elements.method.value;
-        const notes = event.target.elements.notes.value;
+        const name = document.getElementById('name').value;
+        const category = '';
+        const imageURL = document.getElementById('imageURL').value;
+        const ingredients = document.getElementById('ingredients').value;
+        const method = document.getElementById('method').value;
+        const notes = document.getElementById('notes').value;
         setRecipe({
             'name': name,
-            'category': category,
+            'category': '',
             'imageURL': imageURL,
             'ingredients': ingredients,
             'method': method,
@@ -49,49 +51,33 @@ function Create({ setRecipe }) {
 
         <div className='form-container'>
             <h2>New Recipe</h2>
-            <form onSubmit={handleScrape}>
-                <TextField
+            <form className='import-bar' onSubmit={handleScrape}>
+                <CustomInput
+                    fullWidth
                     id="url"
                     margin="normal"
-                    label="url"
-                    variant="outlined"
+                    label="Import Recipe"
                     type="text"
                     name="url"
+                    focused
+                    placeholder='Paste Recipe URL Here'
                 />
-                <Button type='submit'>scrape!</Button>
+                <Button variant='outlined' type='submit'>Import</Button>
             </form>
             <form onSubmit={handleCreate}>
                 <div className='name-container'>
-                    <TextField
+                    <CustomInput
+                        fullWidth
                         id="name"
                         margin="normal"
                         label="Name"
-                        variant="outlined"
                         type="text"
                         name="name"
                         required={true}
                     />
                 </div>
 
-                <TextField
-                    select
-                    id="category"
-                    label="Category"
-                    variant="outlined"
-                    size="medium"
-                    helperText="Select a category"
-                    name="category"
-                >
-                    <MenuItem value="pasta" >Pasta</MenuItem>
-                    <MenuItem value="chicken" >Chicken</MenuItem>
-                    <MenuItem value="soup" >Soup</MenuItem>
-                    <MenuItem value="rice" >Rice & Grains</MenuItem>
-                    <MenuItem value="baking" >Bread & Baking</MenuItem>
-                    <MenuItem value="booze" >Booze</MenuItem>
-                    <MenuItem value="dessert" >Dessert</MenuItem>
-                </TextField>
-
-                <TextField
+                <CustomInput
                     id="imageURL"
                     margin="normal"
                     label="Image Url"
@@ -99,9 +85,10 @@ function Create({ setRecipe }) {
                     variant="outlined"
                     type="text"
                     name="imageURL"
+                    focused
                 />
 
-                <TextField
+                <CustomInput
                     id="ingredients"
                     margin="normal"
                     fullWidth
@@ -111,9 +98,10 @@ function Create({ setRecipe }) {
                     multiline
                     rows={20}
                     variant="outlined"
+                    focused
                 />
 
-                <TextField
+                <CustomInput
                     id='method'
                     margin="normal"
                     fullWidth
@@ -123,9 +111,11 @@ function Create({ setRecipe }) {
                     multiline
                     rows={20}
                     variant="outlined"
+                    focused
                 />
 
-                <TextField
+                <CustomInput
+                    id="notes"
                     margin="normal"
                     fullWidth
                     label="Notes"
@@ -134,6 +124,7 @@ function Create({ setRecipe }) {
                     multiline
                     rows={10}
                     variant="outlined"
+                    focused
                 />
                 <div className='button-bar' >
                     <Link to={`/`} style={{ textDecoration: "none" }}>
