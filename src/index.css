@@ -15,15 +15,17 @@ code {
 
 :root {
   --background: #f7f6f3;
+  --content-background: #e2e2e29c;
   --filter: invert(0%);
   --text: black;
   --banner: linear-gradient(rgba(80, 80, 80, 0.3), rgba(71, 70, 70, 0.6)), url("./assets/cutting-board.jpg");
 
 }
 
-[data-theme='light'] {
+[data-theme='dark'] {
   --background: rgb(40, 40, 40);
   --background-home: #f7f6f3;
+  --content-background: #272727c2;
   --filter: invert(100%);
   --text: white;
   --banner: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.6)), url("./assets/spices.jpg");

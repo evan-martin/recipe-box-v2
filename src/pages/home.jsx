@@ -2,7 +2,6 @@ import useLocalStorage from '../hooks/useLocalStorage';
 import RecipeCard from '../components/recipe-card';
 import Fab from '@mui/material/Fab';
 import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward';
-import TextField from '@mui/material/TextField';
 import InputAdornment from '@mui/material/InputAdornment';
 import SearchIcon from '@mui/icons-material/Search';
 import ThemeSwitch from '../components/theme-switch';

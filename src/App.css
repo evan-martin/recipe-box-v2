@@ -1,10 +1,12 @@
 .app{
     position: relative;
     min-height: 100vh;
-    background-color: rgba(0,0,0,0.15); 
     font-family: "Cormorant Garamond", sans-serif;
 }
 
 .content-container{
     padding-bottom: 6em;
+    background-color: var(--content-background); 
+    color: var(--text)
+
 }
