@@ -1,9 +1,12 @@
+import React from 'react';
 import { Link } from 'react-router-dom';
 import axios from "axios";
 import { Button } from '@mui/material';
 import CustomInput from '../components/custom-input';
+import ErrorAlert from '../components/error-alert';
 
 function Create({ setRecipe }) {
+    const [open, setOpen] = React.useState(true);
 
 
     const handleCreate = (event) => {
@@ -38,11 +41,15 @@ function Create({ setRecipe }) {
     const handleScrape = (event) => {
         event.preventDefault();
         const url = event.target.elements.url.value;
-        axios.post("https://recipe-box-master-api.herokuapp.com/import", { url }).then((res) => {
-            document.getElementById('name').value = res.data.name
-            document.getElementById('imageURL').value = res.data.imageURL
-            document.getElementById('ingredients').value = res.data.ingredients.join("\n")
-            document.getElementById('method').value = res.data.method.join("\n")
+        axios.post("http://localhost:4243", { url }).then((res) => {
+            if (res.data.error) {
+                setOpen(true)
+            } else {
+                document.getElementById('name').value = res.data.name
+                document.getElementById('imageURL').value = res.data.imageURL
+                document.getElementById('ingredients').value = res.data.ingredients.join("\n")
+                document.getElementById('method').value = res.data.method.join("\n")
+            }
         });
 
     }
@@ -62,6 +69,7 @@ function Create({ setRecipe }) {
                     focused
                     placeholder='Paste Recipe URL Here'
                 />
+                <ErrorAlert open={open} setOpen={setOpen} />
                 <Button variant='outlined' type='submit'>Import</Button>
             </form>
             <form onSubmit={handleCreate}>
