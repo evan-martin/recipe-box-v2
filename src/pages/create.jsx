@@ -1,4 +1,5 @@
 import React from 'react';
+import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import axios from "axios";
 import { Button } from '@mui/material';
@@ -6,8 +7,7 @@ import CustomInput from '../components/custom-input';
 import ErrorAlert from '../components/error-alert';
 
 function Create({ setRecipe }) {
-    const [open, setOpen] = React.useState(true);
-
+    const [open, setOpen] = React.useState(false);
 
     const handleCreate = (event) => {
         event.preventDefault();
