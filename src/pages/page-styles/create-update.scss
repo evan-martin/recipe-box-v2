@@ -1,10 +1,14 @@
 .form-container {
+    padding: 0em 1em 1em 1em;
+    display: flex;
+    flex-direction: column;
+    min-height: 92vh;
     max-width: 1400px;
     margin: auto;
-    margin-top: 1em;
-    margin-bottom: 1em;
-    padding: 1em;
     background-color: #f7f6f3;
+    margin-top:3em;
+    margin-bottom: 3em;
+
 
     .import-bar{
         display: flex;
@@ -22,6 +26,7 @@
         display: flex;
         flex-direction: row;
         justify-content: space-between;
+        padding-top: 1em;
 
         .button-group {
             display: flex;
