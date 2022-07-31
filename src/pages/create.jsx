@@ -1,18 +1,21 @@
 import React from 'react';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import axios from "axios";
 import { Button } from '@mui/material';
 import CustomInput from '../components/custom-input';
 import ErrorAlert from '../components/error-alert';
+import UploadWidget from '../components/image-upload';
 
 function Create({ setRecipe }) {
-    const [open, setOpen] = React.useState(false);
+    const [open, setOpen] = useState(false);
+    const [url, setUrl] = useState('');
 
     const handleCreate = (event) => {
         event.preventDefault();
         const name = document.getElementById('name').value;
         const category = '';
-        const imageURL = document.getElementById('imageURL').value;
+        const imageURL = url;
         const ingredients = document.getElementById('ingredients').value;
         const method = document.getElementById('method').value;
         const notes = document.getElementById('notes').value;
@@ -40,7 +43,7 @@ function Create({ setRecipe }) {
     const handleScrape = (event) => {
         event.preventDefault();
         const url = event.target.elements.url.value;
-        axios.post("http://localhost:4243", { url }).then((res) => {
+        axios.post("https://recipe-box-master-api.herokuapp.com/import", { url }).then((res) => {
             if (res.data.error) {
                 setOpen(true)
             } else {
@@ -48,9 +51,9 @@ function Create({ setRecipe }) {
                 document.getElementById('imageURL').value = res.data.imageURL
                 document.getElementById('ingredients').value = res.data.ingredients.join("\n")
                 document.getElementById('method').value = res.data.method.join("\n")
+                setUrl(document.getElementById('imageURL').value)
             }
         });
-
     }
 
     return (
@@ -84,6 +87,9 @@ function Create({ setRecipe }) {
                     />
                 </div>
 
+                <UploadWidget setUrl={setUrl} />
+
+                <p>Or Copy & Paste URL:</p>
                 <CustomInput
                     id="imageURL"
                     margin="normal"
@@ -93,8 +99,11 @@ function Create({ setRecipe }) {
                     type="text"
                     name="imageURL"
                     focused
+                    onChange={event => setUrl(event.target.value)}
                 />
 
+                <p>Image Preview:</p>
+                <img className='image-preview' src={url} alt='' />
                 <CustomInput
                     id="ingredients"
                     margin="normal"
