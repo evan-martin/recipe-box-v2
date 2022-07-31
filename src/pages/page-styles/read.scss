@@ -73,7 +73,7 @@
   .read-button-bar {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: flex-end;
     background-color: var(--background);
     padding: 1em;
   }
