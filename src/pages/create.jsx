@@ -72,7 +72,7 @@ function Create({ setRecipe }) {
                     placeholder='Paste Recipe URL Here'
                 />
                 <ErrorAlert open={open} setOpen={setOpen} />
-                <Button variant='outlined' type='submit'>Import</Button>
+                <Button variant='contained' type='submit'>Import</Button>
             </form>
             <form onSubmit={handleCreate}>
                 <div className='name-container'>

@@ -29,7 +29,7 @@ code {
   --theme-opacity: 75%;
   --theme-hover-opacity: 100%;
   --filter: invert(100%);
-  --text: white;
+  --text: #f7f6f3;
   --banner: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.6)), url("./assets/spices.jpg");
 
 }

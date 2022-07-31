@@ -7,7 +7,8 @@ function UploadWidget({ setUrl }) {
         const myWidget = window.cloudinary.createUploadWidget(
             {
                 cloudName: "dyi8luau7",
-                uploadPreset: "x10dzwmp"
+                uploadPreset: "x10dzwmp",
+                multiple: false
             },
             (error, result) => {
                 if (!error && result && result.event === "success") {
