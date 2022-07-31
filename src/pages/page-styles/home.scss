@@ -5,7 +5,7 @@
     background: var(--banner);
     background-size: cover;
     height: 25em;
-    background-position-y: 20%;
+    background-position-y: var(--background-position-y)
 }
 
 .switch{

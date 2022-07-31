@@ -144,9 +144,9 @@ function Create({ setRecipe }) {
                 />
                 <div className='button-bar' >
                     <Link to={`/`} style={{ textDecoration: "none" }}>
-                        <Button variant="outlined" color='secondary'>Cancel</Button>
+                        <Button variant="contained" color='secondary'>Cancel</Button>
                     </Link>
-                    <Button variant="outlined" type="submit">Create</Button>
+                    <Button variant="contained" type="submit">Create</Button>
                 </div>
             </form>
 
