@@ -3,7 +3,7 @@ import { ReactComponent as RecipeBoxIcon } from "../assets/recipe-box-icon.svg";
 import MenuDrawer from "./menu-drawer";
 import './component-styles/header.scss'
 
-function Header() {
+function Header( {switchTheme} ) {
 
     return (
         <div className="header">
@@ -12,7 +12,7 @@ function Header() {
                     <h1>RB</h1>
                 </Link>
             <div className="menu">
-                <MenuDrawer />
+                <MenuDrawer switchTheme={switchTheme} />
             </div>
         </div>
     );

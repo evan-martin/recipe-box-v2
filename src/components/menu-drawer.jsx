@@ -6,8 +6,9 @@ import ListItem from '@mui/material/ListItem';
 import ListItemText from '@mui/material/ListItemText';
 import MenuIcon from '@mui/icons-material/Menu';
 import { Link } from 'react-router-dom';
+import ThemeSwitch from '../components/theme-switch';
 
-export default function MenuDrawer() {
+export default function MenuDrawer({ switchTheme }) {
   const [state, setState] = React.useState({
     right: false,
   });
@@ -22,7 +23,7 @@ export default function MenuDrawer() {
 
   const list = (anchor) => (
     <Box
-      sx={{ width: 250, height: '100%', backgroundColor: "#1e1e1e"}}
+      sx={{ width: 250, height: '100%', backgroundColor: "#1e1e1e" }}
       role="presentation"
       onClick={toggleDrawer(anchor, false)}
       onKeyDown={toggleDrawer(anchor, false)}
@@ -46,7 +47,9 @@ export default function MenuDrawer() {
             <ListItemText primary={"Shopping List"} style={{ color: "white" }} />
           </ListItem>
         </Link>
+        <ThemeSwitch switchTheme={switchTheme} />
       </List>
+
     </Box>
   );
 

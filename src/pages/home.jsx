@@ -32,9 +32,6 @@ function Home({ data, setRecipe, switchTheme }) {
 
         <>
             <div className='banner'></div>
-            <div className='switch'>
-                <ThemeSwitch switchTheme={switchTheme}/>
-            </div>
             <div className='search-bar'>
                 <h1>Recipe Box</h1>
                 <CustomInput

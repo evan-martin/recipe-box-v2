@@ -38,11 +38,11 @@ function App() {
     return (
       <div className='app' data-theme={theme}>
         <BrowserRouter>
-          <Header />
+          <Header switchTheme={switchTheme}/>
           <div className='content-container'>
             <ScrollToTop>
               <Routes>
-                <Route path="/" element={<Home data={data} setRecipe={setRecipe} switchTheme={switchTheme}/>} />
+                <Route path="/" element={<Home data={data} setRecipe={setRecipe} />} />
                 <Route path="/:id" element={<Read recipe={recipe} list={list} setList={setList} />} />
                 <Route path="/update/:id" element={<Update recipe={recipe} setRecipe={setRecipe} />} />
                 <Route path="/new-recipe" element={<Create setRecipe={setRecipe} />} />
