@@ -22,7 +22,7 @@ export default function MenuDrawer() {
 
   const list = (anchor) => (
     <Box
-      sx={{ width: 250, height: '100%', backgroundColor: "#1e1e1e" }}
+      sx={{ width: 250, height: '100%', backgroundColor: "#1e1e1e"}}
       role="presentation"
       onClick={toggleDrawer(anchor, false)}
       onKeyDown={toggleDrawer(anchor, false)}
@@ -44,12 +44,6 @@ export default function MenuDrawer() {
         <Link className="link" to="/shopping-list" style={{ textDecoration: "none" }}>
           <ListItem button >
             <ListItemText primary={"Shopping List"} style={{ color: "white" }} />
-          </ListItem>
-        </Link>
-
-        <Link className="link" to="/" style={{ textDecoration: "none" }}>
-          <ListItem button >
-            <ListItemText primary={"About"} style={{ color: "white" }} />
           </ListItem>
         </Link>
 

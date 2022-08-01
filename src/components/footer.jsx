@@ -20,7 +20,7 @@ function Footer() {
                 </a>
             </div>
             <Link to="/" style={{ textDecoration: "none" }} >
-                <p>About</p>
+                <p>Recipe Box</p>
             </Link>
         </div>
     );

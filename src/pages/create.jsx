@@ -59,98 +59,99 @@ function Create({ setRecipe }) {
     return (
 
         <div className='form-container'>
-            <h2>New Recipe</h2>
-            <form className='import-bar' onSubmit={handleScrape}>
-                <CustomInput
-                    fullWidth
-                    id="url"
-                    margin="normal"
-                    label="Import Recipe"
-                    type="text"
-                    name="url"
-                    focused
-                    placeholder='Paste Recipe URL Here'
-                />
-                <ErrorAlert open={open} setOpen={setOpen} />
-                <Button variant='contained' type='submit'>Import</Button>
-            </form>
-            <form onSubmit={handleCreate}>
-                <div className='name-container'>
+            <div className='form-content'>
+                <h2>New Recipe</h2>
+                <form className='import-bar' onSubmit={handleScrape}>
                     <CustomInput
                         fullWidth
-                        id="name"
+                        id="url"
                         margin="normal"
-                        label="Name"
+                        label="Import Recipe"
                         type="text"
-                        name="name"
-                        required={true}
+                        name="url"
+                        focused
+                        placeholder='Paste Recipe URL Here'
                     />
-                </div>
+                    <ErrorAlert open={open} setOpen={setOpen} />
+                    <Button variant='contained' type='submit'>Import</Button>
+                </form>
+                <form onSubmit={handleCreate}>
+                    <div className='name-container'>
+                        <CustomInput
+                            fullWidth
+                            id="name"
+                            margin="normal"
+                            label="Name"
+                            type="text"
+                            name="name"
+                            required={true}
+                        />
+                    </div>
 
-                <UploadWidget setUrl={setUrl} />
+                    <UploadWidget setUrl={setUrl} />
 
-                <p>Or Copy & Paste URL:</p>
-                <CustomInput
-                    id="imageURL"
-                    margin="normal"
-                    label="Image Url"
-                    fullWidth
-                    variant="outlined"
-                    type="text"
-                    name="imageURL"
-                    focused
-                    onChange={event => setUrl(event.target.value)}
-                />
+                    <p>Or Copy & Paste URL:</p>
+                    <CustomInput
+                        id="imageURL"
+                        margin="normal"
+                        label="Image Url"
+                        fullWidth
+                        variant="outlined"
+                        type="text"
+                        name="imageURL"
+                        focused
+                        onChange={event => setUrl(event.target.value)}
+                    />
 
-                <p>Image Preview:</p>
-                <img className='image-preview' src={url} alt='' />
-                <CustomInput
-                    id="ingredients"
-                    margin="normal"
-                    fullWidth
-                    label="Ingredients"
-                    type="text"
-                    name="ingredients"
-                    multiline
-                    rows={20}
-                    variant="outlined"
-                    focused
-                />
+                    <p>Image Preview:</p>
+                    <img className='image-preview' src={url} alt='' />
+                    <CustomInput
+                        id="ingredients"
+                        margin="normal"
+                        fullWidth
+                        label="Ingredients"
+                        type="text"
+                        name="ingredients"
+                        multiline
+                        rows={20}
+                        variant="outlined"
+                        focused
+                    />
 
-                <CustomInput
-                    id='method'
-                    margin="normal"
-                    fullWidth
-                    label="Method"
-                    type="text"
-                    name="method"
-                    multiline
-                    rows={20}
-                    variant="outlined"
-                    focused
-                />
+                    <CustomInput
+                        id='method'
+                        margin="normal"
+                        fullWidth
+                        label="Method"
+                        type="text"
+                        name="method"
+                        multiline
+                        rows={20}
+                        variant="outlined"
+                        focused
+                    />
 
-                <CustomInput
-                    id="notes"
-                    margin="normal"
-                    fullWidth
-                    label="Notes"
-                    type="text"
-                    name="notes"
-                    multiline
-                    rows={10}
-                    variant="outlined"
-                    focused
-                />
-                <div className='button-bar' >
-                    <Link to={`/`} style={{ textDecoration: "none" }}>
-                        <Button variant="contained" color='secondary'>Cancel</Button>
-                    </Link>
-                    <Button variant="contained" type="submit">Create</Button>
-                </div>
-            </form>
+                    <CustomInput
+                        id="notes"
+                        margin="normal"
+                        fullWidth
+                        label="Notes"
+                        type="text"
+                        name="notes"
+                        multiline
+                        rows={10}
+                        variant="outlined"
+                        focused
+                    />
+                    <div className='button-bar' >
+                        <Link to={`/`} style={{ textDecoration: "none" }}>
+                            <Button variant="contained" color='error'>Cancel</Button>
+                        </Link>
+                        <Button variant="contained" type="submit">Create</Button>
+                    </div>
+                </form>
 
-
+            </div>
         </div>
     )
 }

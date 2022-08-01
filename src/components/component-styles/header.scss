@@ -1,6 +1,6 @@
 .header {
     display: flex;
-    background-color: var(--background);
+    background-color: rgb(40,40,40);
     width: 100%;
     align-items: center;
     justify-content: space-between;
@@ -14,13 +14,13 @@
 
 
         h1 {
-            color: var(--text);
+            color: #f7f6f3;
             font-size: 1.5em;
           }
 
           .recipe-box-icon {
-            filter: var(--filter);
-            -webkit-filter: var(--filter);
+            filter: invert(100%);
+            -webkit-filter: invert(100%);
             -webkit-transform: scaleX(-1);
             transform: scale(-.7, .7);
           }
@@ -29,8 +29,8 @@
     .menu{
         cursor: pointer;
         margin-right: 3em;
-        filter:  var(--filter);
-        -webkit-filter:  var(--filter);
+        filter:  invert(100%);
+        -webkit-filter:  invert(100%);
     }
 }
 

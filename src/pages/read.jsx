@@ -49,9 +49,9 @@ function Read({ recipe, list, setList }) {
             </div>
             <div className="read-button-bar">
                 <Link to={`/update/${recipe._id}`} style={{ textDecoration: "none" }}>
-                    <Button variant="outlined" color="secondary">Edit</Button>
+                    <Button variant="contained" color="primary">Edit</Button>
                 </Link>
-                <Button onClick={() => navigate(-1)} variant="outlined" color="primary">Back</Button>
+                <Button onClick={() => navigate(-1)} variant="contained" color="primary">Back</Button>
             </div>
         </div>
     )

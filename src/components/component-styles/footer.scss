@@ -1,7 +1,7 @@
 .footer {
     display: flex;
     justify-content: space-between;
-    background-color: var(--background);
+    background-color: rgb(40,40,40);
     position: absolute;
     bottom: 0;
     width: 100%;
@@ -17,7 +17,7 @@
         a {
             display: flex;
             align-items: center;
-            color: var(--text);
+            color: #f7f6f3;
             padding: 3px;
 
             h4 {
@@ -31,7 +31,7 @@
     }
 
     p {
-        color: var(--text);
+        color: #f7f6f3;
         padding-right: 2em;
     }
 }
