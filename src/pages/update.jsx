@@ -124,8 +124,8 @@ function Update({ recipe, setRecipe }) {
                         <DeleteModal recipe_id={recipe._id} />
 
                         <div className='button-group'>
-                            <Button onClick={() => navigate(-1)} variant="outlined" color="secondary">Cancel</Button>
-                            <Button type="submit" variant="outlined">Update</Button>
+                            <Button onClick={() => navigate(-1)} variant="contained" color="secondary">Cancel</Button>
+                            <Button type="submit" variant="contained">Update</Button>
                         </div>
                     </div>
                 </form>

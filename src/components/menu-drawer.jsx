@@ -46,12 +46,6 @@ export default function MenuDrawer() {
             <ListItemText primary={"Shopping List"} style={{ color: "white" }} />
           </ListItem>
         </Link>
-
-        <a href="https://github.com/evan-martin/" target="_blank" rel="noopener noreferrer" style={{ textDecoration: "none" }}>
-          <ListItem button >
-            <ListItemText primary={"GitHub"} style={{ color: "white" }} />
-          </ListItem>
-        </a>
       </List>
     </Box>
   );

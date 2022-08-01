@@ -54,7 +54,7 @@ export default function DeleteModal({ recipe_id } ) {
 
     return (
         <div>
-            <Button variant="outlined" color="error" onClick={handleClickOpen}>
+            <Button variant="contained" color="error" onClick={handleClickOpen}>
                 Delete
             </Button>
             <SimpleDialog

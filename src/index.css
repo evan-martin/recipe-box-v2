@@ -19,8 +19,8 @@ code {
   --theme-hover-opacity: 75%;
   --filter: invert(0%);
   --text: black;
-  --banner: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.6)), url("./assets/cutting-board.jpg");
-  --background-position-y: 20%;
+  --banner: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.6)), url("./assets/pie.jpg");
+  --background-position-y: 60%;
 
 }
 
