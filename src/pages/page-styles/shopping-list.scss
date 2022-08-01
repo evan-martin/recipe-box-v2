@@ -1,3 +1,46 @@
-.shopping-list-item:checked + label{
-    text-decoration: line-through;
+.shopping-container {
+    padding: 3em 5em 5em 5em;
+    display: flex;
+    flex-direction: column;
+    min-height: 70vh;
+    max-width: 1000px;
+    margin: auto;
+    background-color: #f7f6f3;
+    margin-top: 5em;
+    margin-bottom: 5em;
+
+    .add-bar {
+        max-width: 50%;
+    }
+
+    dl {
+        padding: 2em 0 2em 0;
+
+        .shopping-list-item+label {
+            font-size: 1.3em;
+        }
+
+        .shopping-list-item:checked+label {
+            text-decoration: line-through;
+        }
+    }
+
+    .button-bar {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+
+    }
+}
+
+@media only screen and (max-width: 600px) {
+
+    .shopping-container {
+        padding: 1em .5em 2em .5em;
+
+        .add-bar {
+            max-width: 100%;
+        }
+
+    }
 }

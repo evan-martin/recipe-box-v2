@@ -47,11 +47,14 @@ export default function ShoppingList({ list, setList }) {
     }
 
     return (
-        <>
-            <form onSubmit={handleAdd}>
+        <div className="shopping-container">
+            <h2>Shopping List</h2>
+            <form className='add-bar' onSubmit={handleAdd}>
                 <CustomInput
                     label='Add Item'
                     id='add-item'
+                    fullWidth
+                    margin="normal"
                 />
                 <Button variant='contained' type='submit'>Add Item</Button>
             </form>
@@ -67,9 +70,10 @@ export default function ShoppingList({ list, setList }) {
                 })}
             </dl>
 
-            <Button variant='contained' onClick={() => handleClear()}>Clear</Button>
-            <Button variant='contained' onClick={() => handleClearAll()}>Clear All</Button>
-
-        </>
+            <div className="button-bar">
+                <Button variant='contained' onClick={() => handleClear()}>Clear</Button>
+                <Button variant='contained' onClick={() => handleClearAll()}>Clear All</Button>
+            </div>
+        </div>
     )
 }
