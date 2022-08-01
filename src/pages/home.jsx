@@ -4,12 +4,13 @@ import Fab from '@mui/material/Fab';
 import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward';
 import InputAdornment from '@mui/material/InputAdornment';
 import SearchIcon from '@mui/icons-material/Search';
-import ThemeSwitch from '../components/theme-switch';
+import { IconButton } from '@mui/material';
+import { Clear } from '@mui/icons-material';
 import CustomInput from '../components/custom-input';
 import './page-styles/home.scss'
 
 
-function Home({ data, setRecipe, switchTheme }) {
+function Home({ data, setRecipe  }) {
 
     const [searchTerm, setSearchTerm] = useLocalStorage('searchTerm', '')
 
@@ -19,6 +20,15 @@ function Home({ data, setRecipe, switchTheme }) {
             behavior: 'smooth'
         });
     };
+
+    const handleClear = () => {
+        setSearchTerm('')
+        document.getElementById('search').value = ''
+    }
+
+    const handleSubmit = (event) => {
+        event.preventDefault();
+    }
 
     const filteredRecipes = data.filter(recipe =>
         recipe.name.toLowerCase().includes(searchTerm.toLowerCase().trim())
@@ -34,21 +44,29 @@ function Home({ data, setRecipe, switchTheme }) {
             <div className='banner'></div>
             <div className='search-bar'>
                 <h1>Recipe Box</h1>
+                <form onSubmit={handleSubmit}>
                 <CustomInput
+                    id='search'
                     placeholder='Search'
                     InputProps={{
                         startAdornment: (
                             <InputAdornment position='start'>
                                 <SearchIcon />
                             </InputAdornment>
+                        ), endAdornment: (
+                            <IconButton
+                                onClick={handleClear}
+                            >
+                                <Clear />
+                            </IconButton>
                         ),
                     }}
                     variant='outlined'
                     size='large'
-                    type='search'
                     defaultValue={searchTerm.trim()}
                     onChange={event => setSearchTerm(' ' + event.target.value)}
                 />
+                </form>
             </div>
 
             <div className='grid'>
