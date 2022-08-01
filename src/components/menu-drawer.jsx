@@ -41,11 +41,16 @@ export default function MenuDrawer() {
           </ListItem>
         </Link>
 
+        <Link className="link" to="/shopping-list" style={{ textDecoration: "none" }}>
+          <ListItem button >
+            <ListItemText primary={"Shopping List"} style={{ color: "white" }} />
+          </ListItem>
+        </Link>
+
         <Link className="link" to="/" style={{ textDecoration: "none" }}>
           <ListItem button >
             <ListItemText primary={"About"} style={{ color: "white" }} />
           </ListItem>
-
         </Link>
 
         <a href="https://github.com/evan-martin/" target="_blank" rel="noopener noreferrer" style={{ textDecoration: "none" }}>

@@ -9,6 +9,7 @@ import Home from './pages/home'
 import Read from './pages/read'
 import Update from './pages/update'
 import Create from './pages/create'
+import ShoppingList from './pages/shopping-list'
 import Header from './components/header'
 import Footer from './components/footer'
 import Loading from './components/loading'
@@ -20,8 +21,8 @@ function App() {
 
   const { data, error, isLoaded } = useRecipes();
   const [recipe, setRecipe] = useLocalStorage({});
-  const defaultDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-  const [theme, setTheme] = useLocalStorage('theme', defaultDark ? 'dark' : 'light');
+  const [theme, setTheme] = useLocalStorage('theme', 'light');
+  const [list, setList] = useLocalStorage('items', []);
 
   const switchTheme = () => {
     const newTheme = theme === 'light' ? 'dark' : 'light';
@@ -42,9 +43,10 @@ function App() {
             <ScrollToTop>
               <Routes>
                 <Route path="/" element={<Home data={data} setRecipe={setRecipe} switchTheme={switchTheme}/>} />
-                <Route path="/:id" element={<Read recipe={recipe} />} />
+                <Route path="/:id" element={<Read recipe={recipe} list={list} setList={setList} />} />
                 <Route path="/update/:id" element={<Update recipe={recipe} setRecipe={setRecipe} />} />
                 <Route path="/new-recipe" element={<Create setRecipe={setRecipe} />} />
+                <Route path="/shopping-list" element={<ShoppingList list={list} setList={setList} />} />
               </Routes>
             </ScrollToTop>
           </div>

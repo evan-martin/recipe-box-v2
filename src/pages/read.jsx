@@ -1,9 +1,12 @@
+import React from "react"
 import { Link, useNavigate } from "react-router-dom"
 import { Divider, Button } from "@mui/material"
+import CheckboxList from "../components/checklist"
 import defaultRecipeImage from '../assets/default.jpg'
 import './page-styles/read.scss'
 
-function Read({ recipe }) {
+function Read({ recipe, list, setList }) {
+
     const navigate = useNavigate();
 
     const validateImageURL = (imageURL) => {
@@ -11,6 +14,8 @@ function Read({ recipe }) {
           return defaultRecipeImage
         } else return imageURL
       };
+
+    const ingredientArray = recipe.ingredients.split('\n')
 
     return (
         <div className="read-container">
@@ -27,9 +32,9 @@ function Read({ recipe }) {
                 <div className="ingredients-container">
                     <h3 className="ingredients-heading">Ingredients</h3>
                     <Divider />
-                    <p className="ingredients-content">
-                        {recipe.ingredients}
-                    </p>
+                    <div className="ingredients-content">
+                        <CheckboxList ingredientArray={ingredientArray} list={list} setList={setList}/>
+                    </div>
                 </div>
                 <div className="method-container">
                     <h3 className="method-heading">Method</h3>
