@@ -48,31 +48,33 @@ export default function ShoppingList({ list, setList }) {
 
     return (
         <div className="shopping-container">
-            <h2>Shopping List</h2>
-            <form className='add-bar' onSubmit={handleAdd}>
-                <CustomInput
-                    label='Add Item'
-                    id='add-item'
-                    fullWidth
-                    margin="normal"
-                />
-                <Button variant='contained' type='submit'>Add Item</Button>
-            </form>
+            <div className="shopping-content">
+                <h2>Shopping List</h2>
+                <form className='add-bar' onSubmit={handleAdd}>
+                    <CustomInput
+                        label='Add Item'
+                        id='add-item'
+                        fullWidth
+                        margin="normal"
+                    />
+                    <Button variant='contained' type='submit'>Add Item</Button>
+                </form>
 
-            <dl>
-                {list.map((item) => {
-                    return (
-                        <dt key={item} onChange={handleToggle(item)}>
-                            <input type='checkbox' className='shopping-list-item' id={`checkbox-${item}`} />
-                            <label htmlFor={`checkbox-${item}`}> {item} </label>
-                        </dt>
-                    );
-                })}
-            </dl>
+                <dl>
+                    {list.map((item) => {
+                        return (
+                            <dt key={item} onChange={handleToggle(item)}>
+                                <input type='checkbox' className='shopping-list-item' id={`checkbox-${item}`} />
+                                <label htmlFor={`checkbox-${item}`}> {item} </label>
+                            </dt>
+                        );
+                    })}
+                </dl>
 
-            <div className="button-bar">
-                <Button variant='contained' onClick={() => handleClear()}>Clear</Button>
-                <Button variant='contained' onClick={() => handleClearAll()}>Clear All</Button>
+                <div className="button-bar">
+                    <Button variant='contained' onClick={() => handleClear()}>Clear</Button>
+                    <Button variant='contained' onClick={() => handleClearAll()}>Clear All</Button>
+                </div>
             </div>
         </div>
     )
