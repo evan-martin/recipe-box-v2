@@ -28,6 +28,7 @@ function Home({ data, setRecipe  }) {
 
     const handleSubmit = (event) => {
         event.preventDefault();
+        document.getElementById('search').blur()
     }
 
     const filteredRecipes = data.filter(recipe =>
