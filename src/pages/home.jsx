@@ -49,6 +49,7 @@ function Home({ data, setRecipe  }) {
                 <CustomInput
                     id='search'
                     placeholder='Search'
+                    autoComplete='off'
                     InputProps={{
                         startAdornment: (
                             <InputAdornment position='start'>
