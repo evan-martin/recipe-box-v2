@@ -10,7 +10,7 @@ import CustomInput from '../components/custom-input';
 import './page-styles/home.scss'
 
 
-function Home({ data, setRecipe  }) {
+function Home({ data, setRecipe }) {
 
     const [searchTerm, setSearchTerm] = useLocalStorage('searchTerm', '')
 
@@ -46,28 +46,29 @@ function Home({ data, setRecipe  }) {
             <div className='search-bar'>
                 <h1>Recipe Box</h1>
                 <form onSubmit={handleSubmit}>
-                <CustomInput
-                    id='search'
-                    placeholder='Search'
-                    autoComplete='off'
-                    InputProps={{
-                        startAdornment: (
-                            <InputAdornment position='start'>
-                                <SearchIcon />
-                            </InputAdornment>
-                        ), endAdornment: (
-                            <IconButton
-                                onClick={handleClear}
-                            >
-                                <Clear />
-                            </IconButton>
-                        ),
-                    }}
-                    variant='outlined'
-                    size='large'
-                    defaultValue={searchTerm.trim()}
-                    onChange={event => setSearchTerm(' ' + event.target.value)}
-                />
+                    <CustomInput
+                        id='search'
+                        placeholder='Search'
+                        autoComplete='off'
+                        InputProps={{
+                            startAdornment: (
+                                <InputAdornment position='start'>
+                                    <SearchIcon />
+                                </InputAdornment>
+                            ), endAdornment: (
+                                <IconButton
+                                    onClick={handleClear}
+                                    sx={{ visibility: searchTerm ? "visible" : "hidden" }}
+                                >
+                                    <Clear />
+                                </IconButton>
+                            ),
+                        }}
+                        variant='outlined'
+                        size='large'
+                        defaultValue={searchTerm.trim()}            
+                        onChange={event => setSearchTerm(' ' + event.target.value)}
+                    />
                 </form>
             </div>
 
