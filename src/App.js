@@ -1,10 +1,13 @@
 import { useRecipes } from './hooks/useRecipes'
 import useLocalStorage from './hooks/useLocalStorage'
 import {
-  BrowserRouter,
   Routes,
   Route,
+  Navigate
 } from "react-router-dom"
+import { useAuth0 } from "@auth0/auth0-react";
+import Recipes from './pages/recipes';
+import Login from './pages/login';
 import Home from './pages/home'
 import Read from './pages/read'
 import Update from './pages/update'
@@ -19,6 +22,11 @@ import './App.css'
 
 function App() {
 
+  const {
+    isAuthenticated,
+  } = useAuth0();
+
+
   const { data, error, isLoaded } = useRecipes();
   const [recipe, setRecipe] = useLocalStorage({});
   const [theme, setTheme] = useLocalStorage('theme', 'light');
@@ -29,32 +37,32 @@ function App() {
     setTheme(newTheme);
   }
 
-  if (error) {
-    return <Error error={error.message} />;
-  } else if (!isLoaded) {
-    return <Loading />;
-  } else {
+  // if (error) {
+  //   return <Error error={error.message} />;
+  // } else if (!isLoaded) {
+  //   return <Loading />;
+  // } else {
 
     return (
       <div className='app' data-theme={theme}>
-        <BrowserRouter>
-          <Header switchTheme={switchTheme}/>
-          <div className='content-container'>
-            <ScrollToTop>
-              <Routes>
-                <Route path="/" element={<Home data={data} setRecipe={setRecipe} />} />
-                <Route path="/:id" element={<Read recipe={recipe} list={list} setList={setList} />} />
-                <Route path="/update/:id" element={<Update recipe={recipe} setRecipe={setRecipe} />} />
-                <Route path="/new-recipe" element={<Create setRecipe={setRecipe} />} />
-                <Route path="/shopping-list" element={<ShoppingList list={list} setList={setList} />} />
-              </Routes>
-            </ScrollToTop>
-          </div>
-          <Footer />
-        </BrowserRouter>
+        <Header switchTheme={switchTheme} />
+        <div className='content-container'>
+          <ScrollToTop>
+            <Routes>
+              <Route path="/" element={isAuthenticated ? <Navigate to="/recipes" /> : <Login />} />
+              <Route path="/recipes/*" element={<Recipes />} />
+              {/* <Route path="/" element={<Home data={data} setRecipe={setRecipe} />} />
+              <Route path="/:id" element={<Read recipe={recipe} list={list} setList={setList} />} />
+              <Route path="/update/:id" element={<Update recipe={recipe} setRecipe={setRecipe} />} />
+              <Route path="/new-recipe" element={<Create setRecipe={setRecipe} />} />
+              <Route path="/shopping-list" element={<ShoppingList list={list} setList={setList} />} /> */}
+            </Routes>
+          </ScrollToTop>
+        </div>
+        <Footer />
       </div>
     );
   }
-}
+// }
 
 export default App;
