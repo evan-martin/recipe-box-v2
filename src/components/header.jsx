@@ -10,7 +10,6 @@ function Header( {switchTheme} ) {
     return (
 
         <div className="header">
-                    {console.log(isAuthenticated)}
                 <Link className="logo" to="/recipes" style={{ textDecoration: "none" }}>
                     <RecipeBoxIcon className="recipe-box-icon" />
                     <h1>RB</h1>

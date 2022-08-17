@@ -19,6 +19,7 @@ function Read({ recipe, list, setList }) {
 
     return (
         <div className="read-container">
+            <h1>REEEEAD</h1>
             <div className="read-header-container">
                 <div className="read-image-container">
                     <img className="read-image"

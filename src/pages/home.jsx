@@ -31,7 +31,7 @@ function Home({ data, setRecipe }) {
         document.getElementById('search').blur()
     }
 
-    const filteredRecipes = data.filter(recipe =>
+    const filteredRecipes = data.recipes.filter(recipe =>
         recipe.name.toLowerCase().includes(searchTerm.toLowerCase().trim())
         || recipe.ingredients.toLowerCase().includes(searchTerm.toLowerCase())
         || recipe.method.toLowerCase().includes(searchTerm.toLowerCase())

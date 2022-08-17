@@ -26,20 +26,12 @@ function App() {
     isAuthenticated,
   } = useAuth0();
 
-  const [recipe, setRecipe] = useLocalStorage({});
   const [theme, setTheme] = useLocalStorage('theme', 'light');
-  const [list, setList] = useLocalStorage('items', []);
 
   const switchTheme = () => {
     const newTheme = theme === 'light' ? 'dark' : 'light';
     setTheme(newTheme);
   }
-
-  // if (error) {
-  //   return <Error error={error.message} />;
-  // } else if (!isLoaded) {
-  //   return <Loading />;
-  // } else {
 
     return (
       <div className='app' data-theme={theme}>
@@ -61,6 +53,5 @@ function App() {
       </div>
     );
   }
-// }
 
 export default App;
