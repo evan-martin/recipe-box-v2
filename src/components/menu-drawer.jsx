@@ -31,7 +31,7 @@ export default function MenuDrawer({ switchTheme }) {
       <List>
         <ListItem button >
         </ListItem>
-        <Link className="link" to="/" style={{ textDecoration: "none" }}>
+        <Link className="link" to="/recipes" style={{ textDecoration: "none" }}>
           <ListItem button >
             <ListItemText primary={"Home"} style={{ color: "white" }} />
           </ListItem>

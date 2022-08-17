@@ -19,7 +19,7 @@ function Footer() {
                     <LinkedInIcon />
                 </a>
             </div>
-            <Link to="/" style={{ textDecoration: "none" }} >
+            <Link to="/recipes" style={{ textDecoration: "none" }} >
                 <p>Recipe Box</p>
             </Link>
         </div>

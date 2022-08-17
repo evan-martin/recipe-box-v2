@@ -26,8 +26,6 @@ function App() {
     isAuthenticated,
   } = useAuth0();
 
-
-  const { data, error, isLoaded } = useRecipes();
   const [recipe, setRecipe] = useLocalStorage({});
   const [theme, setTheme] = useLocalStorage('theme', 'light');
   const [list, setList] = useLocalStorage('items', []);

@@ -1,18 +1,14 @@
-import { Auth0Client } from '@auth0/auth0-spa-js';
+import { useAuth0 } from "@auth0/auth0-react";
 
 // import './login.css'
 
 export default function Login() {
 
-    const auth0 = new Auth0Client({
-        domain: "dev-nja38y1c.us.auth0.com",
-        client_id: "5vuSMlI9fy3PrkcCNuZHoHLu3GltPI3g"
-    });
+
+    const { loginWithRedirect } = useAuth0();
 
     const handleClick = async () => {
-
-        await auth0.loginWithPopup();
-        window.location.href = "/recipes";
+        await loginWithRedirect();
     }
 
     return (
@@ -22,7 +18,6 @@ export default function Login() {
                 <button onClick={() => handleClick()} className="login-button"> Log In</button>
             </div>
         </div>
-
     )
 }
 
