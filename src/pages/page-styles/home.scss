@@ -5,7 +5,8 @@
     background: var(--banner);
     background-size: cover;
     height: 25em;
-    background-position-y: var(--background-position-y)
+    background-position-y: var(--background-position-y);
+
 }
 
 .switch{
@@ -23,6 +24,7 @@
     filter: invert(100%);
     -webkit-filter: invert(100%);
     padding-top: 5em;
+    margin-bottom: 10em;
 
     
     h1{
@@ -34,21 +36,22 @@
 }
 
 .grid {
-    padding: 10em .5em 2em .5em;
-    margin-bottom: 0em;
+    padding: 2em .5em 2em .5em;
+    // margin: 0 1em 0 1em;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
-    // background-color: #f7f6f3;
-    background-color: var(--background);
+    background-color: #f7f6f3;
+    // background-color: var(--background);
+    // max-width: 80vw;
     
 
 
     .grid-item {
         margin: 2em 1em 2.5em 1em;
-        width: 550px;
-        max-height: 400px;
+        width: 350px;
+        max-height: 300px;
         cursor: pointer;
     }
 }
