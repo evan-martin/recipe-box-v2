@@ -9,7 +9,6 @@ import { Clear } from '@mui/icons-material';
 import CustomInput from '../components/custom-input';
 import './page-styles/home.scss'
 
-
 function Home({ data, setRecipe }) {
 
     const [searchTerm, setSearchTerm] = useLocalStorage('searchTerm', '')

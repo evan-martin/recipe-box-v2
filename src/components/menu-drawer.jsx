@@ -36,13 +36,13 @@ export default function MenuDrawer({ switchTheme }) {
             <ListItemText primary={"Home"} style={{ color: "white" }} />
           </ListItem>
         </Link>
-        <Link className="link" to="/new-recipe" style={{ textDecoration: "none" }}>
+        <Link className="link" to="recipes/new-recipe" style={{ textDecoration: "none" }}>
           <ListItem button >
             <ListItemText primary={"New Recipe"} style={{ color: "white" }} />
           </ListItem>
         </Link>
 
-        <Link className="link" to="/shopping-list" style={{ textDecoration: "none" }}>
+        <Link className="link" to="recipes/shopping-list" style={{ textDecoration: "none" }}>
           <ListItem button >
             <ListItemText primary={"Shopping List"} style={{ color: "white" }} />
           </ListItem>

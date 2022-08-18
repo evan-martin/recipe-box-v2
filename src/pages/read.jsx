@@ -19,7 +19,6 @@ function Read({ recipe, list, setList }) {
 
     return (
         <div className="read-container">
-            <h1>REEEEAD</h1>
             <div className="read-header-container">
                 <div className="read-image-container">
                     <img className="read-image"
@@ -49,7 +48,7 @@ function Read({ recipe, list, setList }) {
                 <p className="notes">{recipe.notes}</p>
             </div>
             <div className="read-button-bar">
-                <Link to={`/update/${recipe._id}`} style={{ textDecoration: "none" }}>
+                <Link to={`/recipes/update/${recipe._id}`} style={{ textDecoration: "none" }}>
                     <Button variant="contained" color="primary">Edit</Button>
                 </Link>
                 <Button onClick={() => navigate(-1)} variant="contained" color="primary">Back</Button>

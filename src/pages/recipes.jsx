@@ -7,6 +7,8 @@ import Read from "./read";
 import useLocalStorage from "../hooks/useLocalStorage";
 import DeleteModal from '../components/delete-modal'
 import Home from "./home";
+import Create from "./create";
+import Update from "./update";
 
 const Recipes = () => {
     const { logout } = useAuth0();
@@ -30,6 +32,8 @@ const Recipes = () => {
                     <Routes>
                         <Route path="/" element={<Home data={data} setRecipe={setRecipe} />} />
                         <Route path="/:id" element={<Read recipe={recipe} list={list} setList={setList} />} />
+                        <Route path="/new-recipe" element={<Create setRecipe={setRecipe} />} />
+                        <Route path="/update/:id" element={<Update recipe={recipe} setRecipe={setRecipe} />} />
                     </Routes>
                 </div>
             </div>
