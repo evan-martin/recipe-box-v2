@@ -1,39 +1,56 @@
 import { useNavigate } from 'react-router-dom';
 import axios from "axios";
 import { TextField, MenuItem, Button } from '@mui/material';
+import { useAuth0 } from "@auth0/auth0-react";
 import DeleteModal from '../components/delete-modal';
 import './page-styles/create-update.scss'
 
 function Update({ recipe, setRecipe }) {
+    const { getAccessTokenSilently, user } = useAuth0();
     const navigate = useNavigate();
+    
 
     const handleUpdate = (event) => {
         event.preventDefault();
         let name = event.target.elements.name.value;
-        let category = event.target.elements.category.value;
         let imageURL = event.target.elements.imageURL.value;
         let ingredients = event.target.elements.ingredients.value;
         let method = event.target.elements.method.value;
         let notes = event.target.elements.notes.value;
         setRecipe({
             ...recipe, 'name': name,
-            'category': category,
             'imageURL': imageURL,
             'ingredients': ingredients,
             'method': method,
             'notes': notes,
         });
-        axios.put("https://recipe-box-master-api.herokuapp.com/" + recipe._id, {
-            name,
-            category,
-            imageURL,
-            ingredients,
-            method,
-            notes
-        })
-            .then(() => {
-                navigate(-1)
-            });
+
+        (async () => {
+            try {
+                console.log(recipe._id)
+                const accessToken = await getAccessTokenSilently();
+                axios.put("https://recipe-api-authorized.herokuapp.com/api/recipes/update",
+                    {
+                        name: name,
+                        imageURL: imageURL,
+                        ingredients: ingredients,
+                        method: method,
+                        notes: notes,
+
+                    }, {
+                    headers: {
+                        Authorization: `Bearer ${accessToken}`,
+                        user: user.email,
+                        recipe: recipe._id,
+                    },
+                }).then(() => {
+                    navigate(-1)
+                });
+
+            } catch (error) {
+            }
+        })();
+
     }
 
     return (
