@@ -9,6 +9,7 @@ import DeleteModal from '../components/delete-modal'
 import Home from "./home";
 import Create from "./create";
 import Update from "./update";
+import ShoppingList from "./shopping-list";
 
 const Recipes = () => {
     const { logout } = useAuth0();
@@ -34,6 +35,7 @@ const Recipes = () => {
                         <Route path="/:id" element={<Read recipe={recipe} list={list} setList={setList} />} />
                         <Route path="/new-recipe" element={<Create setRecipe={setRecipe} />} />
                         <Route path="/update/:id" element={<Update recipe={recipe} setRecipe={setRecipe} />} />
+                        <Route path="/shopping-list" element={<ShoppingList list={list} setList={setList} />} />
                     </Routes>
                 </div>
             </div>
