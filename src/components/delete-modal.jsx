@@ -7,19 +7,33 @@ import Dialog from '@mui/material/Dialog';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogActions from '@mui/material/DialogActions';
+import { useAuth0 } from '@auth0/auth0-react';
 
 function SimpleDialog(props) {
     const { onClose, open, recipe_id } = props;
+    const { getAccessTokenSilently, user } = useAuth0();
 
     const handleClose = () => {
         onClose();
     };
 
     const handleDelete = () => {
-        axios.delete("https://recipe-box-master-api.herokuapp.com/" + recipe_id)
-            .then(() => {
-                window.location.href = "/";
-            });
+        (async () => {
+            try {
+                const accessToken = await getAccessTokenSilently();
+                axios.delete("https://recipe-api-authorized.herokuapp.com/api/recipes/delete", {
+                    headers: {
+                        Authorization: `Bearer ${accessToken}`,
+                        user: user.email,
+                        recipe: recipe_id,
+                    },
+                }).then(() => {
+                    window.location.href = "/recipes";
+                });
+
+            } catch (error) {
+            }
+        })();
     }
 
     return (
@@ -41,7 +55,7 @@ SimpleDialog.propTypes = {
     open: PropTypes.bool.isRequired,
 };
 
-export default function DeleteModal({ recipe_id } ) {
+export default function DeleteModal({ recipe_id }) {
     const [open, setOpen] = React.useState(false);
 
     const handleClickOpen = () => {
