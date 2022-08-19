@@ -22,7 +22,9 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <div className='app' >
-        <Header />
+        {isAuthenticated && (
+          <Header />
+        )}
         <div className='content-container'>
           <ScrollToTop>
             <Routes>
@@ -31,7 +33,10 @@ function App() {
             </Routes>
           </ScrollToTop>
         </div>
-        <Footer />
+        {isAuthenticated && (
+          <Footer />
+        )}
+
       </div>
     </ThemeProvider>
   );

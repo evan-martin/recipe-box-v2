@@ -61,6 +61,7 @@
 
     .method-container {
       min-width: 50%;
+      max-width: 65%;
       padding-right: 2em;
 
       .method-content {
@@ -84,7 +85,7 @@
     flex-direction: row;
     justify-content: space-between;
     background-color: var(--background);
-    padding: 1em;
+    padding: 2em;
   }
 }
 
@@ -120,7 +121,8 @@
       }
 
       .method-container {
-        width: 100%;
+        max-width: 100%;
+        padding-right: 0em;
       }
     }
 
@@ -128,6 +130,10 @@
       min-height: 7em;
       padding-left: 1em;
       padding-right: 1em;
+    }
+
+    .read-button-bar{
+      padding: 1em;
     }
   }
 }

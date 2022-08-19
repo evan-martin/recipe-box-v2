@@ -13,18 +13,23 @@
     margin-left: 2em;
 
 
-    h1 {
+    p {
       color: #f7f6f3;
-      font-size: 1.5em;
-      margin-left: -0.5em;
+      font-size: 1.2em;
+      margin-left: -1em;
+      // font-family: 'Inter', sans-serif;
     }
 
     .recipe-box-icon {
       filter: invert(100%);
       -webkit-filter: invert(100%);
       -webkit-transform: scaleX(-1);
-      transform: scale(-.6, .6);
+      transform: scale(-.5, .5);
     }
+  }
+
+  h1{
+    color: #f7f6f3;
   }
 
   .menu {
@@ -43,7 +48,7 @@
 
 @media only screen and (max-width: 600px) {
   .header .logo {
-    margin-left: 0em;
+    margin-left: 1em;
   }
 
   .header .menu {

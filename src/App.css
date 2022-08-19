@@ -3,7 +3,7 @@
     min-height: 100vh;
     font-family: "Cormorant Garamond", sans-serif;
     /* background-color: var(--content-background);  */
-    background: url('./assets/bowl.jpg');
+    background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.6)), url('./assets/bowl.jpg');
     background-size: cover;
     background-position-y: 50%;
     background-position-x: 50%;

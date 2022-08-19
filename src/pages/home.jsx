@@ -43,7 +43,7 @@ function Home({ data, setRecipe }) {
         <>
             <div className='banner'></div>
             <div className='search-bar'>
-                <h1>Recipe Box</h1>
+                {/* <h1>Recipe Box</h1> */}
                 <form onSubmit={handleSubmit}>
                     <CustomInput
                         id='search'
