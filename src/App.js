@@ -1,4 +1,3 @@
-import { useRecipes } from './hooks/useRecipes'
 import useLocalStorage from './hooks/useLocalStorage'
 import {
   Routes,
@@ -8,15 +7,8 @@ import {
 import { useAuth0 } from "@auth0/auth0-react";
 import Recipes from './pages/recipes';
 import Login from './pages/login';
-import Home from './pages/home'
-import Read from './pages/read'
-import Update from './pages/update'
-import Create from './pages/create'
-import ShoppingList from './pages/shopping-list'
 import Header from './components/header'
 import Footer from './components/footer'
-import Loading from './components/loading'
-import Error from './components/error'
 import ScrollToTop from './components/scroll-to-top'
 import './App.css'
 

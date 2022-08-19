@@ -6,6 +6,7 @@
   max-width: 1400px;
   margin: auto;
 
+
   .read-header-container {
     display: flex;
     align-items: center;
@@ -41,14 +42,19 @@
     margin-top: -7em;
     padding-left: 2em;
 
+
     .ingredients-container {
-      min-width: 45%;
+      width: 100%;
       padding-right: 2em;
 
 
       .ingredients-content {
-        font-size: 1.3em;
-        line-height: 1.3em;
+        line-height: 2em;
+        font-family: "Inter", sans-serif;
+
+        .check-label{
+          padding-left: 0.5em;
+        }
       }
     }
 
@@ -57,7 +63,8 @@
       padding-right: 2em;
 
       .method-content {
-        font-size: 1.3em;
+        line-height: 1.75em;
+        font-family: "Inter", sans-serif;
       }
     }
   }
@@ -92,7 +99,7 @@
         margin-top: 0em;
         display: grid;
         justify-items: center;
-        text-align : center;
+        text-align: center;
       }
     }
 

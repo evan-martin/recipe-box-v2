@@ -1,15 +1,14 @@
 import { useAuth0, withAuthenticationRequired } from "@auth0/auth0-react";
-import { Link } from "react-router-dom";
 import { useRecipes } from "../hooks/useRecipes";
 import { Route, Routes } from "react-router-dom";
-import RecipeCard from "../components/recipe-card";
 import Read from "./read";
 import useLocalStorage from "../hooks/useLocalStorage";
-import DeleteModal from '../components/delete-modal'
 import Home from "./home";
 import Create from "./create";
 import Update from "./update";
 import ShoppingList from "./shopping-list";
+import Loading from '../components/loading'
+import Error from '../components/error'
 
 const Recipes = () => {
     const { logout } = useAuth0();
@@ -19,9 +18,9 @@ const Recipes = () => {
     const [list, setList] = useLocalStorage('items', []);
 
     if (!isLoaded) {
-        return <p>loading...</p>;
+        return <Loading />;
     } else if (error) {
-        return <p>{error}</p>
+        return <Error />
     } else {
 
         return (
@@ -44,7 +43,7 @@ const Recipes = () => {
 }
 
 export default withAuthenticationRequired(Recipes, {
-    onRedirecting: () => <p>Redirect Loading...</p>,
+    onRedirecting: () => <Loading />,
 });
 
 
