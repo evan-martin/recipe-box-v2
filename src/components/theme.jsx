@@ -13,7 +13,7 @@ const theme = createTheme({
     secondary: {
       main: '#3f5673',
     },
-  },
+  }
 });
 
 export default theme

@@ -11,7 +11,6 @@ import Loading from '../components/loading'
 import Error from '../components/error'
 
 const Recipes = () => {
-    const { logout } = useAuth0();
 
     const { data, error, isLoaded } = useRecipes();
     const [recipe, setRecipe] = useLocalStorage({});
@@ -26,9 +25,6 @@ const Recipes = () => {
         return (
             <div>
                 <div className="home-content">
-                    <h1>{data.name}</h1>
-                    <button onClick={() => logout({ returnTo: window.location.origin })}> Log Out</button>
-
                     <Routes>
                         <Route path="/" element={<Home data={data} setRecipe={setRecipe} />} />
                         <Route path="/:id" element={<Read recipe={recipe} list={list} setList={setList} />} />

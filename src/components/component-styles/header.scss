@@ -1,45 +1,52 @@
 .header {
+  display: flex;
+  background-color: rgb(40, 40, 40);
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  font-size: .875em;
+
+
+  .logo {
     display: flex;
-    background-color: rgb(40,40,40);
-    width: 100%;
     align-items: center;
-    justify-content: space-between;
-    font-size: .875em;
+    margin-left: 2em;
 
 
-    .logo {
-        display: flex;
-        align-items: center;
-        margin-left: 2em;
-
-
-        h1 {
-            color: #f7f6f3;
-            font-size: 1.5em;
-          }
-
-          .recipe-box-icon {
-            filter: invert(100%);
-            -webkit-filter: invert(100%);
-            -webkit-transform: scaleX(-1);
-            transform: scale(-.7, .7);
-          }
+    h1 {
+      color: #f7f6f3;
+      font-size: 1.5em;
+      margin-left: -0.5em;
     }
 
-    .menu{
-        cursor: pointer;
-        margin-right: 3em;
-        filter:  invert(100%);
-        -webkit-filter:  invert(100%);
+    .recipe-box-icon {
+      filter: invert(100%);
+      -webkit-filter: invert(100%);
+      -webkit-transform: scaleX(-1);
+      transform: scale(-.6, .6);
     }
+  }
+
+  .menu {
+    cursor: pointer;
+    margin-right: 3em;
+    filter: invert(100%);
+    -webkit-filter: invert(100%);
+    display: flex;
+    flex-direction: row;
+
+    .dropdown {
+      padding-right: 0.5em;
+    }
+  }
 }
 
 @media only screen and (max-width: 600px) {
-    .header .logo {
-      margin-left: 0em;
-        }
-
-    .header .menu{
-        margin-right: 1em;
-    }
+  .header .logo {
+    margin-left: 0em;
   }
+
+  .header .menu {
+    margin-right: 1em;
+  }
+}
