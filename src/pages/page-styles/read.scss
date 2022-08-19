@@ -49,8 +49,9 @@
 
 
       .ingredients-content {
-        line-height: 2em;
-        font-family: "Inter", sans-serif;
+        line-height: 1.5em;
+        // font-family: "Inter", sans-serif;
+        font-size: 1.4em;
 
         .check-label{
           padding-left: 0.5em;
@@ -63,8 +64,9 @@
       padding-right: 2em;
 
       .method-content {
-        line-height: 1.75em;
-        font-family: "Inter", sans-serif;
+        line-height: 1.5em;
+        // font-family: "Inter", sans-serif;
+        font-size: 1.4em;
       }
     }
   }

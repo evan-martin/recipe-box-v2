@@ -1,4 +1,3 @@
-import useLocalStorage from './hooks/useLocalStorage'
 import {
   Routes,
   Route,
@@ -11,6 +10,8 @@ import Header from './components/header'
 import Footer from './components/footer'
 import ScrollToTop from './components/scroll-to-top'
 import './App.css'
+import { ThemeProvider } from '@mui/material/styles';
+import theme from './components/theme'
 
 function App() {
 
@@ -18,32 +19,22 @@ function App() {
     isAuthenticated,
   } = useAuth0();
 
-  const [theme, setTheme] = useLocalStorage('theme', 'light');
-
-  const switchTheme = () => {
-    const newTheme = theme === 'light' ? 'dark' : 'light';
-    setTheme(newTheme);
-  }
-
-    return (
-      <div className='app' data-theme={theme}>
-        <Header switchTheme={switchTheme} />
+  return (
+    <ThemeProvider theme={theme}>
+      <div className='app' >
+        <Header />
         <div className='content-container'>
           <ScrollToTop>
             <Routes>
               <Route path="/" element={isAuthenticated ? <Navigate to="/recipes" /> : <Login />} />
               <Route path="/recipes/*" element={<Recipes />} />
-              {/* <Route path="/" element={<Home data={data} setRecipe={setRecipe} />} />
-              <Route path="/:id" element={<Read recipe={recipe} list={list} setList={setList} />} />
-              <Route path="/update/:id" element={<Update recipe={recipe} setRecipe={setRecipe} />} />
-              <Route path="/new-recipe" element={<Create setRecipe={setRecipe} />} />
-              <Route path="/shopping-list" element={<ShoppingList list={list} setList={setList} />} /> */}
             </Routes>
           </ScrollToTop>
         </div>
         <Footer />
       </div>
-    );
-  }
+    </ThemeProvider>
+  );
+}
 
 export default App;
