@@ -9,12 +9,19 @@ import Update from "./update";
 import ShoppingList from "./shopping-list";
 import Loading from '../components/loading'
 import Error from '../components/error'
+import { useEffect } from "react";
 
 const Recipes = () => {
 
     const { data, error, isLoaded } = useRecipes();
     const [recipe, setRecipe] = useLocalStorage({});
     const [list, setList] = useLocalStorage('items', []);
+
+    useEffect(() => {
+        (async () => {
+            setList(data.shoppingList)
+        })();
+    }, [data]);
 
     if (!isLoaded) {
         return <Loading />;

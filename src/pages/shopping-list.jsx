@@ -1,10 +1,14 @@
 import React from "react";
 import { Button } from "@mui/material";
 import CustomInput from "../components/custom-input";
+import axios from "axios";
+import { useAuth0 } from '@auth0/auth0-react';
 import './page-styles/shopping-list.scss'
 
 export default function ShoppingList({ list, setList }) {
     const [checked, setChecked] = React.useState([]);
+    const { getAccessTokenSilently, user } = useAuth0();
+
 
     const handleToggle = (value) => () => {
         const currentIndex = checked.indexOf(value);
@@ -32,11 +36,13 @@ export default function ShoppingList({ list, setList }) {
         let filteredList = list
         checked.forEach(element => filteredList = filteredList.filter(value => value !== element))
         setList(filteredList)
+        pushToDB(filteredList)
         uncheckAll()
     }
 
     const handleClearAll = () => {
         setList([])
+        pushToDB([])
     }
 
     const uncheckAll = () => {
@@ -44,6 +50,23 @@ export default function ShoppingList({ list, setList }) {
         for (var i = 0; i < inputs.length; i++) {
             inputs[i].checked = false;
         }
+    }
+
+    const pushToDB = (shoppingList) => {
+        (async () => {
+            try {
+                const accessToken = await getAccessTokenSilently();
+                axios.put("https://recipe-api-authorized.herokuapp.com/api/recipes/update-shopping-list", {
+                    shoppingList: shoppingList
+                }, {
+                    headers: {
+                        Authorization: `Bearer ${accessToken}`,
+                        user: user.email
+                    },
+                });
+            } catch (error) {
+            }
+        })();
     }
 
     return (
