@@ -57,15 +57,13 @@ export default function CheckboxList({ ingredientArray, list, setList }) {
 
     return (
         <>
-            <dl>
+            <dl className='checklist'>
                 {ingredientArray.map((item) => {
                     return (
-                        <dt key={item} onChange={handleToggle(item)} >
-                            <input type="checkbox" id={`checkbox-${item}`} />
+                        <dt key={item} onChange={handleToggle(item)} className='checklist-item' >
+                            <input type="checkbox" className='checkbox' id={`checkbox-${item}`} />
                             <label htmlFor={`checkbox-${item}`} className='check-label'>
-
                                 {item}
-
                             </label>
                         </dt>
                     );

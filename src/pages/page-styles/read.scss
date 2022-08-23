@@ -49,12 +49,24 @@
 
 
       .ingredients-content {
-        line-height: 1.5em;
-        // font-family: "Inter", sans-serif;
-        font-size: 1.4em;
+        line-height: 1.75em;
+        font-family: 'League Spartan', sans-serif;
+        font-size: 1.25em;
+        font-weight: 300;
 
-        .check-label{
-          padding-left: 0.5em;
+        .checklist-item {
+          display: flex;
+          align-items: flex-start;
+
+          .checkbox{
+            margin-top: .6em;
+            margin-left: 0em;
+          }
+
+
+          .check-label {
+            padding-left: 0.5em;
+          }
         }
       }
     }
@@ -66,8 +78,9 @@
 
       .method-content {
         line-height: 1.5em;
-        // font-family: "Inter", sans-serif;
-        font-size: 1.4em;
+        font-family: 'League Spartan', sans-serif;
+        font-size: 1.25em;
+        font-weight: 300;
       }
     }
   }
@@ -91,17 +104,16 @@
 
 @media only screen and (max-width: 600px) {
   .read-container {
-    padding-top: 1em;
-    padding-bottom: 1em;
+    padding: 1em 0em 0em 0em;
 
     .read-header-container {
       flex-direction: column;
 
       .recipe-name {
         padding: 0em;
+        padding-left: 1em;
+        padding-right: 1em;
         margin-top: 0em;
-        display: grid;
-        justify-items: center;
         text-align: center;
       }
     }
@@ -111,8 +123,8 @@
       flex-wrap: wrap;
       padding-top: 12em;
       margin-top: -12em;
-      padding-left: .5em;
-      padding-right: .5em;
+      padding-left: 1em;
+      padding-right: 1em;
 
       .ingredients-container {
         width: 100%;
@@ -132,7 +144,7 @@
       padding-right: 1em;
     }
 
-    .read-button-bar{
+    .read-button-bar {
       padding: 1em;
     }
   }
