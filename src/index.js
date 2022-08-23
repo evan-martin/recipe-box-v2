@@ -2,7 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { Auth0Provider } from "@auth0/auth0-react";
 import { BrowserRouter } from 'react-router-dom';
-import config from "./config.json";
 import App from './App';
 import './index.css';
 
@@ -12,10 +11,10 @@ root.render(
   <React.StrictMode>
     <BrowserRouter>
       <Auth0Provider
-        domain={config.domain}
-        clientId={config.clientId}
-        redirectUri={config.redirectUri}
-        audience={config.audience}
+        domain={process.env.REACT_APP_DOMAIN}
+        clientId={process.env.REACT_APP_CLIENT_ID}
+        redirectUri={process.env.REACT_APP_REDIRECT_URI}
+        audience={process.env.REACT_APP_AUDIENCE}
       >
         <App />
       </Auth0Provider>

@@ -1,6 +1,0 @@
-{
-  "domain": "dev-nja38y1c.us.auth0.com",
-  "clientId": "5vuSMlI9fy3PrkcCNuZHoHLu3GltPI3g",
-  "audience": "https:test-api/",
-  "redirectUri": "http://localhost:3000/recipes"
-}
