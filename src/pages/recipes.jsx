@@ -9,35 +9,30 @@ import Update from "./update";
 import ShoppingList from "./shopping-list";
 import Loading from '../components/loading'
 import Error from '../components/error'
-import { useEffect } from "react";
+import { useState } from "react";
 
 const Recipes = () => {
 
-    const { data, error, isLoaded } = useRecipes();
+    const { data, error, isLoaded, shoppingList } = useRecipes();
     const [recipe, setRecipe] = useLocalStorage({});
-    const [list, setList] = useLocalStorage('items', []);
-
-    useEffect(() => {
-        (async () => {
-            setList(data.shoppingList)
-        })();
-    }, [data]);
+    const [list, setList] = useState([]);
 
     if (!isLoaded) {
         return <Loading />;
     } else if (error) {
         return <Error />
     } else {
-
         return (
+
             <div>
+
                 <div className="home-content">
                     <Routes>
                         <Route path="/" element={<Home data={data} setRecipe={setRecipe} />} />
                         <Route path="/:id" element={<Read recipe={recipe} list={list} setList={setList} />} />
                         <Route path="/new-recipe" element={<Create setRecipe={setRecipe} />} />
                         <Route path="/update/:id" element={<Update recipe={recipe} setRecipe={setRecipe} />} />
-                        <Route path="/shopping-list" element={<ShoppingList list={list} setList={setList} />} />
+                        <Route path="/shopping-list" element={<ShoppingList list={list} setList={setList} shoppingList={shoppingList} />} />
                     </Routes>
                 </div>
             </div>

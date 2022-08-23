@@ -7,6 +7,7 @@ function useRecipes() {
   const [error, setError] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
   const [data, setData] = useState([]);
+  const [shoppingList, setShoppingList] = useState([]);
   const { user } = useAuth0();
 
   useEffect(() => {
@@ -21,7 +22,9 @@ function useRecipes() {
         }).then(res => {
           setIsLoaded(true);
           setData(res.data['result']);
+          setShoppingList(res.data['result'].shoppingList);
         })
+
       } catch (error) {
         setIsLoaded(true);
         setError(error);
@@ -33,6 +36,7 @@ function useRecipes() {
     isLoaded,
     error,
     data,
+    shoppingList,
   }
 }
 

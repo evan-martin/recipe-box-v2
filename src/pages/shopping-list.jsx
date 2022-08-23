@@ -1,14 +1,17 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Button } from "@mui/material";
 import CustomInput from "../components/custom-input";
 import axios from "axios";
 import { useAuth0 } from '@auth0/auth0-react';
 import './page-styles/shopping-list.scss'
 
-export default function ShoppingList({ list, setList }) {
+export default function ShoppingList({ list, setList, shoppingList }) {
     const [checked, setChecked] = React.useState([]);
     const { getAccessTokenSilently, user } = useAuth0();
 
+    useEffect(() => {
+        setList(shoppingList)
+    }, []);
 
     const handleToggle = (value) => () => {
         const currentIndex = checked.indexOf(value);
@@ -28,6 +31,7 @@ export default function ShoppingList({ list, setList }) {
         const item = document.getElementById('add-item').value.trim()
         if (!list.includes(item) && item !== '') {
             setList([...list, item])
+            pushToDB([...list, item])
         }
         document.getElementById('add-item').value = ""
     }
@@ -52,12 +56,12 @@ export default function ShoppingList({ list, setList }) {
         }
     }
 
-    const pushToDB = (shoppingList) => {
+    const pushToDB = (list) => {
         (async () => {
             try {
                 const accessToken = await getAccessTokenSilently();
                 axios.put("https://recipe-api-authorized.herokuapp.com/api/recipes/update-shopping-list", {
-                    shoppingList: shoppingList
+                    shoppingList: list
                 }, {
                     headers: {
                         Authorization: `Bearer ${accessToken}`,
