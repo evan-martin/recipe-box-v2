@@ -37,7 +37,7 @@
 
 .grid {
     padding: 2em .5em 2em .5em;
-    margin-bottom: 5em;
+    // margin-bottom: 5em;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -49,9 +49,9 @@
 
 
     .grid-item {
-        margin: 2em 1em 3em 1em;
-        width: 350px;
-        max-height: 300px;
+        margin: 1em 1em 6em 1em;
+        width: 160px;
+        height: 200px;
         cursor: pointer;
     }
 }
@@ -75,16 +75,16 @@
 
 @media only screen and (max-width: 600px) {
     .banner{
-        height: 20em;
+        // height: 20em;
     }
 
     .grid{
         padding-top: 0em;
 
      .grid-item {
-        margin: 2em 0 2.5em 0;
-        height: 275px;
-        width: 100%;
+        margin: 1em 0.5em 7em 0.5em;
+        // height: 275px;
+        // width: 100%;
     }}
 
     .search-bar{
