@@ -8,7 +8,6 @@ import './page-styles/create-update.scss'
 function Update({ recipe, setRecipe }) {
     const { getAccessTokenSilently, user } = useAuth0();
     const navigate = useNavigate();
-    
 
     const handleUpdate = (event) => {
         event.preventDefault();
@@ -17,12 +16,14 @@ function Update({ recipe, setRecipe }) {
         let ingredients = event.target.elements.ingredients.value;
         let method = event.target.elements.method.value;
         let notes = event.target.elements.notes.value;
+        let tags = event.target.elements.tags.value
         setRecipe({
             ...recipe, 'name': name,
             'imageURL': imageURL,
             'ingredients': ingredients,
             'method': method,
             'notes': notes,
+            'tags' : tags,
         });
 
         (async () => {
@@ -36,7 +37,7 @@ function Update({ recipe, setRecipe }) {
                         ingredients: ingredients,
                         method: method,
                         notes: notes,
-
+                        tags: tags,
                     }, {
                     headers: {
                         Authorization: `Bearer ${accessToken}`,
@@ -73,25 +74,6 @@ function Update({ recipe, setRecipe }) {
                     </div>
 
                     <TextField
-                        select
-                        id="category"
-                        label="Category"
-                        variant="outlined"
-                        size="medium"
-                        helperText="Select a category"
-                        name="category"
-                        defaultValue={recipe.category}
-                    >
-                        <MenuItem value="pasta" >Pasta</MenuItem>
-                        <MenuItem value="chicken" >Chicken</MenuItem>
-                        <MenuItem value="soup" >Soup</MenuItem>
-                        <MenuItem value="rice" >Rice & Grains</MenuItem>
-                        <MenuItem value="baking" >Bread & Baking</MenuItem>
-                        <MenuItem value="booze" >Booze</MenuItem>
-                        <MenuItem value="dessert" >Dessert</MenuItem>
-                    </TextField>
-
-                    <TextField
                         id="imageURL"
                         margin="normal"
                         label="Image Url"
@@ -100,6 +82,17 @@ function Update({ recipe, setRecipe }) {
                         type="text"
                         name="imageURL"
                         defaultValue={recipe.imageURL}
+                    />
+
+                    <TextField
+                        id="tags"
+                        margin="normal"
+                        label="Tags"
+                        fullWidth
+                        variant="outlined"
+                        type="text"
+                        name="tags"
+                        defaultValue={recipe.tags}
                     />
 
                     <TextField

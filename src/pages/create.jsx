@@ -27,6 +27,7 @@ function Create({ setRecipe }) {
             'ingredients': ingredients,
             'method': method,
             'notes': notes,
+            'tags' : tags,
         });
 
         (async () => {
