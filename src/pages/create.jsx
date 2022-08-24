@@ -20,6 +20,7 @@ function Create({ setRecipe }) {
         const ingredients = document.getElementById('ingredients').value;
         const method = document.getElementById('method').value;
         const notes = document.getElementById('notes').value;
+        const tags = document.getElementById('tags').value;
         setRecipe({
             'name': name,
             'imageURL': imageURL,
@@ -36,7 +37,8 @@ function Create({ setRecipe }) {
                     imageURL: imageURL,
                     ingredients: ingredients,
                     method: method,
-                    notes: notes
+                    notes: notes,
+                    tags: tags
                 }, {
                     headers: {
                         Authorization: `Bearer ${accessToken}`,
@@ -60,6 +62,7 @@ function Create({ setRecipe }) {
             } else {
                 document.getElementById('name').value = res.data.name
                 document.getElementById('imageURL').value = res.data.imageURL
+                document.getElementById('tags').value = res.data.tags
                 document.getElementById('ingredients').value = res.data.ingredients.join("\n")
                 document.getElementById('method').value = res.data.method.join("\n")
                 setUrl(document.getElementById('imageURL').value)
@@ -114,8 +117,23 @@ function Create({ setRecipe }) {
                         onChange={event => setUrl(event.target.value)}
                     />
 
+
                     <p>Image Preview:</p>
                     <img className='image-preview' src={url} alt='' />
+
+
+                    <p>Add Tags separated by commas to make searching easier (eg apps, desert, bbq, etc...):</p>
+
+                    <CustomInput id="tags"
+                        margin="normal"
+                        fullWidth
+                        label="Search Tags"
+                        type="text"
+                        name="tags"
+                        variant="outlined"
+                        focused
+                    />
+
                     <CustomInput
                         id="ingredients"
                         margin="normal"
@@ -128,6 +146,8 @@ function Create({ setRecipe }) {
                         variant="outlined"
                         focused
                     />
+
+
 
                     <CustomInput
                         id='method'
@@ -154,6 +174,7 @@ function Create({ setRecipe }) {
                         variant="outlined"
                         focused
                     />
+
                     <div className='button-bar' >
                         <Link to={`/`} style={{ textDecoration: "none" }}>
                             <Button variant="contained" color='error'>Cancel</Button>
