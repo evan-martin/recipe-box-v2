@@ -5,7 +5,7 @@ import CheckboxList from "../components/checklist"
 import defaultRecipeImage from '../assets/default.jpg'
 import './page-styles/read.scss'
 
-function Read({ recipe, list, setList }) {
+function Read({ recipe, shoppingList, setShoppingList }) {
 
     const navigate = useNavigate();
 
@@ -33,7 +33,7 @@ function Read({ recipe, list, setList }) {
                     <h3 className="ingredients-heading">Ingredients</h3>
                     <Divider />
                     <div className="ingredients-content">
-                        <CheckboxList ingredientArray={ingredientArray} list={list} setList={setList}/>
+                        <CheckboxList ingredientArray={ingredientArray} shoppingList={shoppingList} setShoppingList={setShoppingList}/>
                     </div>
                 </div>
                 <div className="method-container">

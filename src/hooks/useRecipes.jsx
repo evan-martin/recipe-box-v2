@@ -6,7 +6,7 @@ function useRecipes() {
   const { getAccessTokenSilently } = useAuth0();
   const [error, setError] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
-  const [data, setData] = useState([]);
+  const [recipes, setRecipes] = useState([]);
   const [shoppingList, setShoppingList] = useState([]);
   const { user } = useAuth0();
 
@@ -21,7 +21,7 @@ function useRecipes() {
           }
         }).then(res => {
           setIsLoaded(true);
-          setData(res.data['result']);
+          setRecipes(res.data['result'].recipes);
           setShoppingList(res.data['result'].shoppingList);
         })
 
@@ -35,8 +35,10 @@ function useRecipes() {
   return {
     isLoaded,
     error,
-    data,
+    recipes,
+    setRecipes,
     shoppingList,
+    setShoppingList
   }
 }
 

@@ -9,7 +9,7 @@ import { Clear } from '@mui/icons-material';
 import CustomInput from '../components/custom-input';
 import './page-styles/home.scss'
 
-function Home({ data, setRecipe }) {
+function Home({ recipes, setRecipe }) {
 
     const [searchTerm, setSearchTerm] = useLocalStorage('searchTerm', '')
 
@@ -30,7 +30,7 @@ function Home({ data, setRecipe }) {
         document.getElementById('search').blur()
     }
 
-    const filteredRecipes = data.recipes.filter(recipe =>
+    const filteredRecipes = recipes.filter(recipe =>
         recipe.name.toLowerCase().includes(searchTerm.toLowerCase().trim())
         || recipe.ingredients.toLowerCase().includes(searchTerm.toLowerCase())
         || recipe.method.toLowerCase().includes(searchTerm.toLowerCase())
@@ -74,7 +74,7 @@ function Home({ data, setRecipe }) {
             <div className='grid'>
                 {filteredRecipes.map((recipe) => (
                     <div className='grid-item' key={recipe._id}>
-                        <RecipeCard recipe={recipe} setRecipe={setRecipe} />
+                        <RecipeCard recipe={recipe} setRecipe={setRecipe}/>
                     </div>
                 ))}
             </div>

@@ -1,44 +1,42 @@
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import axios from "axios";
-import { TextField, MenuItem, Button } from '@mui/material';
+import { TextField, Button } from '@mui/material';
 import { useAuth0 } from "@auth0/auth0-react";
 import DeleteModal from '../components/delete-modal';
 import './page-styles/create-update.scss'
 
-function Update({ recipe, setRecipe }) {
+function Update({ recipe, setRecipe, recipes, setRecipes }) {
     const { getAccessTokenSilently, user } = useAuth0();
     const navigate = useNavigate();
+    const { id }= useParams();
 
     const handleUpdate = (event) => {
         event.preventDefault();
+        const index = recipes.findIndex(recipe => recipe._id === id);
         let name = event.target.elements.name.value;
         let imageURL = event.target.elements.imageURL.value;
         let ingredients = event.target.elements.ingredients.value;
         let method = event.target.elements.method.value;
         let notes = event.target.elements.notes.value;
-        let tags = event.target.elements.tags.value
-        setRecipe({
-            ...recipe, 'name': name,
+        let tags = event.target.elements.tags.value;
+        const updatedRecipe = {
+            '_id': recipe._id,
+            'name': name,
             'imageURL': imageURL,
             'ingredients': ingredients,
             'method': method,
             'notes': notes,
-            'tags' : tags,
-        });
+            'tags': tags,
+        };
+
+        setRecipe(updatedRecipe);
+        setRecipes( Object.assign([], recipes, { [index]: updatedRecipe }));
 
         (async () => {
             try {
-                console.log(recipe._id)
                 const accessToken = await getAccessTokenSilently();
                 axios.put("https://recipe-api-authorized.herokuapp.com/api/recipes/update",
-                    {
-                        name: name,
-                        imageURL: imageURL,
-                        ingredients: ingredients,
-                        method: method,
-                        notes: notes,
-                        tags: tags,
-                    }, {
+                    updatedRecipe,{
                     headers: {
                         Authorization: `Bearer ${accessToken}`,
                         user: user.email,
@@ -51,11 +49,9 @@ function Update({ recipe, setRecipe }) {
             } catch (error) {
             }
         })();
-
     }
 
     return (
-
         <div className='form-container'>
             <div className='form-content'>
                 <h2>Editing {recipe.name}</h2>

@@ -1,4 +1,4 @@
-import { useAuth0, withAuthenticationRequired } from "@auth0/auth0-react";
+import { withAuthenticationRequired } from "@auth0/auth0-react";
 import { useRecipes } from "../hooks/useRecipes";
 import { Route, Routes } from "react-router-dom";
 import Read from "./read";
@@ -9,13 +9,12 @@ import Update from "./update";
 import ShoppingList from "./shopping-list";
 import Loading from '../components/loading'
 import Error from '../components/error'
-import { useState } from "react";
+
 
 const Recipes = () => {
 
-    const { data, error, isLoaded, shoppingList } = useRecipes();
-    const [recipe, setRecipe] = useLocalStorage({});
-    const [list, setList] = useState([]);
+    const { error, isLoaded, recipes, setRecipes, shoppingList, setShoppingList } = useRecipes();
+    const [recipe, setRecipe] = useLocalStorage([]);
 
     if (!isLoaded) {
         return <Loading />;
@@ -28,11 +27,11 @@ const Recipes = () => {
 
                 <div className="home-content">
                     <Routes>
-                        <Route path="/" element={<Home data={data} setRecipe={setRecipe} />} />
-                        <Route path="/:id" element={<Read recipe={recipe} list={list} setList={setList} />} />
+                        <Route path="/" element={<Home recipes={recipes} setRecipe={setRecipe} />} />
+                        <Route path="/:id" element={<Read recipe={recipe} shoppingList={shoppingList} setShoppingList={setShoppingList} />} />
                         <Route path="/new-recipe" element={<Create setRecipe={setRecipe} />} />
-                        <Route path="/update/:id" element={<Update recipe={recipe} setRecipe={setRecipe} />} />
-                        <Route path="/shopping-list" element={<ShoppingList list={list} setList={setList} shoppingList={shoppingList} />} />
+                        <Route path="/update/:id" element={<Update recipe={recipe} setRecipe={setRecipe} recipes={recipes} setRecipes={setRecipes} />} />
+                        {/* <Route path="/shopping-list" element={<ShoppingList list={list} setList={setList} shoppingList={shoppingList} />} /> */}
                     </Routes>
                 </div>
             </div>
