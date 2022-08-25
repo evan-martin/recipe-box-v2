@@ -1,15 +1,17 @@
 import React from 'react';
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import axios from "axios";
 import { useAuth0 } from '@auth0/auth0-react';
 import { Button } from '@mui/material';
 import CustomInput from '../components/custom-input';
 import ErrorAlert from '../components/error-alert';
 import UploadWidget from '../components/image-upload';
+import { ObjectID } from 'bson';
 
-function Create({ setRecipe }) {
+function Create({ recipes, setRecipes }) {
     const { getAccessTokenSilently, user } = useAuth0();
+    const navigate = useNavigate();
     const [open, setOpen] = useState(false);
     const [url, setUrl] = useState('');
 
@@ -21,32 +23,28 @@ function Create({ setRecipe }) {
         const method = document.getElementById('method').value;
         const notes = document.getElementById('notes').value;
         const tags = document.getElementById('tags').value;
-        setRecipe({
+        const newRecipe = {
+            '_id': new ObjectID().toString(),
             'name': name,
             'imageURL': imageURL,
             'ingredients': ingredients,
             'method': method,
             'notes': notes,
             'tags' : tags,
-        });
+        };
+
+        setRecipes([...recipes, newRecipe]);
 
         (async () => {
             try {
                 const accessToken = await getAccessTokenSilently();
-                axios.put("https://recipe-api-authorized.herokuapp.com/api/recipes/new-recipe", {
-                    name: name,
-                    imageURL: imageURL,
-                    ingredients: ingredients,
-                    method: method,
-                    notes: notes,
-                    tags: tags
-                }, {
+                axios.put("https://recipe-api-authorized.herokuapp.com/api/recipes/new-recipe", newRecipe, {
                     headers: {
                         Authorization: `Bearer ${accessToken}`,
                         user: user.email
                     },
                 }).then(() => {
-                    window.location.href = "/recipes";
+                    navigate("/recipes");
                 });
             } catch (error) {
             }

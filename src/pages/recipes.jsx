@@ -29,7 +29,7 @@ const Recipes = () => {
                     <Routes>
                         <Route path="/" element={<Home recipes={recipes} setRecipe={setRecipe} />} />
                         <Route path="/:id" element={<Read recipe={recipe} shoppingList={shoppingList} setShoppingList={setShoppingList} />} />
-                        <Route path="/new-recipe" element={<Create setRecipe={setRecipe} />} />
+                        <Route path="/new-recipe" element={<Create recipes={recipes} setRecipes={setRecipes} />} />
                         <Route path="/update/:id" element={<Update recipe={recipe} setRecipe={setRecipe} recipes={recipes} setRecipes={setRecipes} />} />
                         {/* <Route path="/shopping-list" element={<ShoppingList list={list} setList={setList} shoppingList={shoppingList} />} /> */}
                     </Routes>
