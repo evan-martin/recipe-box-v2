@@ -31,7 +31,7 @@ const Recipes = () => {
                         <Route path="/:id" element={<Read recipe={recipe} shoppingList={shoppingList} setShoppingList={setShoppingList} />} />
                         <Route path="/new-recipe" element={<Create recipes={recipes} setRecipes={setRecipes} />} />
                         <Route path="/update/:id" element={<Update recipe={recipe} setRecipe={setRecipe} recipes={recipes} setRecipes={setRecipes} />} />
-                        {/* <Route path="/shopping-list" element={<ShoppingList list={list} setList={setList} shoppingList={shoppingList} />} /> */}
+                        <Route path="/shopping-list" element={<ShoppingList shoppingList={shoppingList} setShoppingList={setShoppingList} />} />
                     </Routes>
                 </div>
             </div>

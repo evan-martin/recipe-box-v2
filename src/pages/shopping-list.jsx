@@ -5,13 +5,9 @@ import axios from "axios";
 import { useAuth0 } from '@auth0/auth0-react';
 import './page-styles/shopping-list.scss'
 
-export default function ShoppingList({ list, setList, shoppingList }) {
+export default function ShoppingList({ shoppingList, setShoppingList }) {
     const [checked, setChecked] = React.useState([]);
     const { getAccessTokenSilently, user } = useAuth0();
-
-    useEffect(() => {
-        setList(shoppingList)
-    }, []);
 
     const handleToggle = (value) => () => {
         const currentIndex = checked.indexOf(value);
@@ -29,23 +25,23 @@ export default function ShoppingList({ list, setList, shoppingList }) {
     const handleAdd = (event) => {
         event.preventDefault();
         const item = document.getElementById('add-item').value.trim()
-        if (!list.includes(item) && item !== '') {
-            setList([...list, item])
-            pushToDB([...list, item])
+        if (!shoppingList.includes(item) && item !== '') {
+            setShoppingList([...shoppingList, item])
+            pushToDB([...shoppingList, item])
         }
         document.getElementById('add-item').value = ""
     }
 
     const handleClear = () => {
-        let filteredList = list
+        let filteredList = shoppingList
         checked.forEach(element => filteredList = filteredList.filter(value => value !== element))
-        setList(filteredList)
+        setShoppingList(filteredList)
         pushToDB(filteredList)
         uncheckAll()
     }
 
     const handleClearAll = () => {
-        setList([])
+        setShoppingList([])
         pushToDB([])
     }
 
@@ -56,12 +52,12 @@ export default function ShoppingList({ list, setList, shoppingList }) {
         }
     }
 
-    const pushToDB = (list) => {
+    const pushToDB = (shoppingList) => {
         (async () => {
             try {
                 const accessToken = await getAccessTokenSilently();
                 axios.put("https://recipe-api-authorized.herokuapp.com/api/recipes/update-shopping-list", {
-                    shoppingList: list
+                    shoppingList: shoppingList
                 }, {
                     headers: {
                         Authorization: `Bearer ${accessToken}`,
@@ -88,7 +84,7 @@ export default function ShoppingList({ list, setList, shoppingList }) {
                 </form>
 
                 <dl>
-                    {list.map((item) => {
+                    {shoppingList.map((item) => {
                         return (
                             <dt key={item} onChange={handleToggle(item)}>
                                 <input type='checkbox' className='shopping-list-item' id={`checkbox-${item}`} />
