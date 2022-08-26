@@ -127,7 +127,7 @@ function Update({ recipe, setRecipe, recipes, setRecipes }) {
                         defaultValue={recipe.notes}
                     />
                     <div className='button-bar'>
-                        <DeleteModal recipe_id={recipe._id} />
+                        <DeleteModal recipe={recipe} recipes={recipes} setRecipes={setRecipes} />
 
                         <div className='button-group'>
                             <Button onClick={() => navigate(-1)} variant="contained" color="secondary">Cancel</Button>

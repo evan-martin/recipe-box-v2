@@ -1,6 +1,7 @@
 import * as React from 'react';
 import axios from "axios";
 import PropTypes from 'prop-types';
+import { useNavigate } from 'react-router-dom';
 import Button from '@mui/material/Button';
 import DialogTitle from '@mui/material/DialogTitle';
 import Dialog from '@mui/material/Dialog';
@@ -10,14 +11,16 @@ import DialogActions from '@mui/material/DialogActions';
 import { useAuth0 } from '@auth0/auth0-react';
 
 function SimpleDialog(props) {
-    const { onClose, open, recipe_id } = props;
+    const { onClose, open, recipe, recipes, setRecipes } = props;
     const { getAccessTokenSilently, user } = useAuth0();
+    const navigate = useNavigate();
 
     const handleClose = () => {
         onClose();
     };
 
     const handleDelete = () => {
+        setRecipes(recipes.filter(item => item !== recipe));
         (async () => {
             try {
                 const accessToken = await getAccessTokenSilently();
@@ -25,10 +28,10 @@ function SimpleDialog(props) {
                     headers: {
                         Authorization: `Bearer ${accessToken}`,
                         user: user.email,
-                        recipe: recipe_id,
+                        recipe: recipe._id,
                     },
                 }).then(() => {
-                    window.location.href = "/recipes";
+                    navigate("/recipes");
                 });
 
             } catch (error) {
@@ -55,7 +58,7 @@ SimpleDialog.propTypes = {
     open: PropTypes.bool.isRequired,
 };
 
-export default function DeleteModal({ recipe_id }) {
+export default function DeleteModal({ recipe, recipes, setRecipes }) {
     const [open, setOpen] = React.useState(false);
 
     const handleClickOpen = () => {
@@ -74,7 +77,9 @@ export default function DeleteModal({ recipe_id }) {
             <SimpleDialog
                 open={open}
                 onClose={handleClose}
-                recipe_id={recipe_id}
+                recipe={recipe}
+                recipes={recipes}
+                setRecipes={setRecipes}
             />
         </div>
     );
