@@ -23,7 +23,7 @@ export default function MenuDrawer({ switchTheme }) {
 
   const list = (anchor) => (
     <Box
-      sx={{ width: 250, height: '100%', backgroundColor: "#1e1e1e" }}
+      sx={{ width: 180, height: '100%', backgroundColor: "#1e1e1e" }}
       role="presentation"
       onClick={toggleDrawer(anchor, false)}
       onKeyDown={toggleDrawer(anchor, false)}
@@ -57,7 +57,7 @@ export default function MenuDrawer({ switchTheme }) {
     <div>
       {['right'].map((anchor) => (
         <React.Fragment key={anchor}>
-          <MenuIcon onClick={toggleDrawer(anchor, true)} />
+          <MenuIcon onClick={toggleDrawer(anchor, true)} sx={{ width: '1.25em', height: '100%' }} />
           <Drawer
             anchor={anchor}
             open={state[anchor]}

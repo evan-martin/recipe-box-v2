@@ -36,7 +36,7 @@
     cursor: pointer;
     margin-right: 3em;
     display: flex;
-    flex-direction: row;
+    align-items: center;
 
     .menu-icon {
       filter: invert(100%);
