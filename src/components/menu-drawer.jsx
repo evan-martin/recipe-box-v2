@@ -47,7 +47,7 @@ export default function MenuDrawer({ switchTheme }) {
             <ListItemText primary={"Shopping List"} style={{ color: "white" }} />
           </ListItem>
         </Link>
-        <ThemeSwitch switchTheme={switchTheme} />
+        {/* <ThemeSwitch switchTheme={switchTheme} /> */}
       </List>
 
     </Box>

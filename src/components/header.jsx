@@ -18,7 +18,9 @@ function Header({ switchTheme }) {
       {/* <h1>Recipe Box</h1> */}
       <div className="menu">
         <UserDropdown />
-        <MenuDrawer switchTheme={switchTheme} />
+        <div className='menu-icon'>
+          <MenuDrawer switchTheme={switchTheme} />
+        </div>
       </div>
     </div>
   );
