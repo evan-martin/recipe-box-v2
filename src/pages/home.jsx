@@ -33,7 +33,7 @@ function Home({ recipes, setRecipe }) {
     const filteredRecipes = recipes.filter(recipe =>
         recipe.name.toLowerCase().includes(searchTerm.toLowerCase().trim())
         || recipe.ingredients.toLowerCase().includes(searchTerm.toLowerCase())
-        || recipe.method.toLowerCase().includes(searchTerm.toLowerCase())
+        || recipe.tags.toLowerCase().includes(searchTerm.toLowerCase())
     );
 
     filteredRecipes.reverse()

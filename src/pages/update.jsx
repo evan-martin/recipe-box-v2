@@ -26,7 +26,7 @@ function Update({ recipe, setRecipe, recipes, setRecipes }) {
             'ingredients': ingredients,
             'method': method,
             'notes': notes,
-            'tags': tags,
+            'tags': " " + tags,
         };
 
         setRecipe(updatedRecipe);
