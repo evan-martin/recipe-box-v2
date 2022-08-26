@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { Button } from "@mui/material";
 import CustomInput from "../components/custom-input";
 import axios from "axios";

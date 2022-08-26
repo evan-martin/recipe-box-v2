@@ -3,7 +3,7 @@ import { Button } from '@mui/material';
 import axios from "axios";
 import { useAuth0 } from '@auth0/auth0-react';
 
-export default function CheckboxList({ ingredientArray, list, setList }) {
+export default function CheckboxList({ ingredientArray, shoppingList, setShoppingList }) {
     const [checked, setChecked] = React.useState([]);
     const { getAccessTokenSilently, user } = useAuth0();
 
@@ -21,8 +21,8 @@ export default function CheckboxList({ ingredientArray, list, setList }) {
     };
 
     const handleAdd = () => {
-        setList(removeDuplicates([...list, ...checked]))
-        pushToDB(removeDuplicates([...list, ...checked]))
+        setShoppingList(removeDuplicates([...shoppingList, ...checked]))
+        pushToDB(removeDuplicates([...shoppingList, ...checked]))
         setChecked([])
         uncheckAll()
     }

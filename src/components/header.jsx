@@ -2,11 +2,9 @@ import { Link } from "react-router-dom";
 import { ReactComponent as RecipeBoxIcon } from "../assets/recipe-box-icon.svg";
 import MenuDrawer from "./menu-drawer";
 import './component-styles/header.scss'
-import { useAuth0 } from "@auth0/auth0-react";
 import UserDropdown from "./user-dropdown";
 
 function Header({ switchTheme }) {
-  const { isAuthenticated } = useAuth0();
 
   return (
 
