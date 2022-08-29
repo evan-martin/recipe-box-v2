@@ -93,6 +93,13 @@
     white-space: pre-wrap;
   }
 
+  .nutrition-container{
+    background-color: var(--background);
+    display: flex;
+    justify-content: center;
+    padding-bottom: 3em;
+  }
+
   .read-button-bar {
     display: flex;
     flex-direction: row;

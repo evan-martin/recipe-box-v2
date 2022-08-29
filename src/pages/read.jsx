@@ -2,6 +2,7 @@ import React from "react"
 import { Link, useNavigate } from "react-router-dom"
 import { Divider, Button } from "@mui/material"
 import CheckboxList from "../components/checklist"
+import NutritionInfo from "../components/nutrition-info"
 import defaultRecipeImage from '../assets/default.jpg'
 import './page-styles/read.scss'
 
@@ -11,9 +12,9 @@ function Read({ recipe, shoppingList, setShoppingList }) {
 
     const validateImageURL = (imageURL) => {
         if (!imageURL) {
-          return defaultRecipeImage
+            return defaultRecipeImage
         } else return imageURL
-      };
+    };
 
     const ingredientArray = recipe.ingredients.split('\n')
 
@@ -33,7 +34,7 @@ function Read({ recipe, shoppingList, setShoppingList }) {
                     <h3 className="ingredients-heading">Ingredients</h3>
                     <Divider />
                     <div className="ingredients-content">
-                        <CheckboxList ingredientArray={ingredientArray} shoppingList={shoppingList} setShoppingList={setShoppingList}/>
+                        <CheckboxList ingredientArray={ingredientArray} shoppingList={shoppingList} setShoppingList={setShoppingList} />
                     </div>
                 </div>
                 <div className="method-container">
@@ -46,6 +47,9 @@ function Read({ recipe, shoppingList, setShoppingList }) {
                 <h3>Notes:</h3>
                 <Divider />
                 <p className="notes">{recipe.notes}</p>
+            </div>
+            <div className="nutrition-container">
+                <NutritionInfo />
             </div>
             <div className="read-button-bar">
                 <Link to={`/recipes/update/${recipe._id}`} style={{ textDecoration: "none" }}>
