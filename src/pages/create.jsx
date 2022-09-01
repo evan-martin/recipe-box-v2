@@ -24,13 +24,13 @@ function Create({ recipes, setRecipes }) {
         const notes = document.getElementById('notes').value;
         const tags = document.getElementById('tags').value;
         const newRecipe = {
-            '_id': new ObjectID().toString(),
+            'id': new ObjectID().toString(),
             'name': name,
             'imageURL': imageURL,
             'ingredients': ingredients,
             'method': method,
             'notes': notes,
-            'tags' : " " + tags,
+            'tag' : " " + tags,
         };
 
         setRecipes([...recipes, newRecipe]);
@@ -38,7 +38,7 @@ function Create({ recipes, setRecipes }) {
         (async () => {
             try {
                 const accessToken = await getAccessTokenSilently();
-                axios.put("https://recipe-api-authorized.herokuapp.com/api/recipes/new-recipe", newRecipe, {
+                axios.put(process.env.REACT_APP_API, newRecipe, {
                     headers: {
                         Authorization: `Bearer ${accessToken}`,
                         user: user.email
@@ -144,6 +144,7 @@ function Create({ recipes, setRecipes }) {
                         rows={20}
                         variant="outlined"
                         focused
+                        required={true}
                     />
 
 

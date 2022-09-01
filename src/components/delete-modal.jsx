@@ -24,11 +24,11 @@ function SimpleDialog(props) {
         (async () => {
             try {
                 const accessToken = await getAccessTokenSilently();
-                axios.delete("https://recipe-api-authorized.herokuapp.com/api/recipes/delete", {
+                axios.delete(process.env.REACT_APP_API, {
                     headers: {
                         Authorization: `Bearer ${accessToken}`,
                         user: user.email,
-                        recipe: recipe._id,
+                        recipe: recipe.id,
                     },
                 }).then(() => {
                     navigate("/recipes");

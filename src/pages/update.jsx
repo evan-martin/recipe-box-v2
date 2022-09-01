@@ -12,7 +12,7 @@ function Update({ recipe, setRecipe, recipes, setRecipes }) {
 
     const handleUpdate = (event) => {
         event.preventDefault();
-        const index = recipes.findIndex(recipe => recipe._id === id);
+        const index = recipes.findIndex(recipe => recipe.id === id);
         let name = event.target.elements.name.value;
         let imageURL = event.target.elements.imageURL.value;
         let ingredients = event.target.elements.ingredients.value;
@@ -20,13 +20,13 @@ function Update({ recipe, setRecipe, recipes, setRecipes }) {
         let notes = event.target.elements.notes.value;
         let tags = event.target.elements.tags.value;
         const updatedRecipe = {
-            '_id': recipe._id,
+            'id': recipe.id,
             'name': name,
             'imageURL': imageURL,
             'ingredients': ingredients,
             'method': method,
             'notes': notes,
-            'tags': " " + tags,
+            'tag': " " + tags,
         };
 
         setRecipe(updatedRecipe);
@@ -35,12 +35,11 @@ function Update({ recipe, setRecipe, recipes, setRecipes }) {
         (async () => {
             try {
                 const accessToken = await getAccessTokenSilently();
-                axios.put("https://recipe-api-authorized.herokuapp.com/api/recipes/update",
+                axios.put(process.env.REACT_APP_API,
                     updatedRecipe,{
                     headers: {
                         Authorization: `Bearer ${accessToken}`,
                         user: user.email,
-                        recipe: recipe._id,
                     },
                 }).then(() => {
                     navigate(-1)
@@ -66,6 +65,7 @@ function Update({ recipe, setRecipe, recipes, setRecipes }) {
                             type="text"
                             name="name"
                             defaultValue={recipe.name}
+                            required={true}
                         />
                     </div>
 
@@ -101,6 +101,7 @@ function Update({ recipe, setRecipe, recipes, setRecipes }) {
                         rows={20}
                         variant="outlined"
                         defaultValue={recipe.ingredients}
+                        required={true}
                     />
 
                     <TextField

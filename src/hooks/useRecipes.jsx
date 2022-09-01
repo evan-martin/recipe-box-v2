@@ -14,15 +14,15 @@ function useRecipes() {
     (async () => {
       try {
         const accessToken = await getAccessTokenSilently();
-        axios.get("https://recipe-api-authorized.herokuapp.com/api/recipes", {
+        axios.get(process.env.REACT_APP_API, {
           headers: {
             Authorization: `Bearer ${accessToken}`,
             user: user.email
           }
         }).then(res => {
           setIsLoaded(true);
-          setRecipes(res.data['result'].recipes);
-          setShoppingList(res.data['result'].shoppingList);
+          setShoppingList(res.data['Items'].filter(object => object.id ==='shoppingList').shift().shoppingList);
+          setRecipes(res.data['Items'].filter(object => object.id !='shoppingList'));
         })
 
       } catch (error) {

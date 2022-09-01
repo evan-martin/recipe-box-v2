@@ -33,7 +33,7 @@ function Home({ recipes, setRecipe }) {
     const filteredRecipes = recipes.filter(recipe =>
         recipe.name.toLowerCase().includes(searchTerm.toLowerCase().trim())
         || recipe.ingredients.toLowerCase().includes(searchTerm.toLowerCase())
-        || recipe.tags.toLowerCase().includes(searchTerm.toLowerCase())
+        || recipe.tag.toLowerCase().includes(searchTerm.toLowerCase())
     );
 
     filteredRecipes.reverse()
@@ -73,7 +73,7 @@ function Home({ recipes, setRecipe }) {
 
             <div className='grid'>
                 {filteredRecipes.map((recipe) => (
-                    <div className='grid-item' key={recipe._id}>
+                    <div className='grid-item' key={recipe.id}>
                         <RecipeCard recipe={recipe} setRecipe={setRecipe}/>
                     </div>
                 ))}

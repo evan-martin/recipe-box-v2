@@ -10,7 +10,6 @@ import ShoppingList from "./shopping-list";
 import Loading from '../components/loading'
 import Error from '../components/error'
 
-
 const Recipes = () => {
 
     const { error, isLoaded, recipes, setRecipes, shoppingList, setShoppingList } = useRecipes();
@@ -24,7 +23,6 @@ const Recipes = () => {
         return (
 
             <div>
-
                 <div className="home-content">
                     <Routes>
                         <Route path="/" element={<Home recipes={recipes} setRecipe={setRecipe} />} />

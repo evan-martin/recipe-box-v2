@@ -52,7 +52,7 @@ function Read({ recipe, shoppingList, setShoppingList }) {
                 <NutritionInfo />
             </div>
             <div className="read-button-bar">
-                <Link to={`/recipes/update/${recipe._id}`} style={{ textDecoration: "none" }}>
+                <Link to={`/recipes/update/${recipe.id}`} style={{ textDecoration: "none" }}>
                     <Button variant="contained" color="primary">Edit</Button>
                 </Link>
                 <Button onClick={() => navigate(-1)} variant="contained" color="primary">Back</Button>
