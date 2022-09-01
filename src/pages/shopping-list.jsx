@@ -56,7 +56,7 @@ export default function ShoppingList({ shoppingList, setShoppingList }) {
         (async () => {
             try {
                 const accessToken = await getAccessTokenSilently();
-                axios.put("https://recipe-api-authorized.herokuapp.com/api/recipes/update-shopping-list", {
+                axios.put("https://34rz1edov8.execute-api.us-west-1.amazonaws.com/shoppingList", {
                     shoppingList: shoppingList
                 }, {
                     headers: {
