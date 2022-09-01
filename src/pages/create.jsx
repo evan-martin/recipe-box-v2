@@ -38,7 +38,7 @@ function Create({ recipes, setRecipes }) {
         (async () => {
             try {
                 const accessToken = await getAccessTokenSilently();
-                axios.put(process.env.REACT_APP_API, newRecipe, {
+                axios.put("https://34rz1edov8.execute-api.us-west-1.amazonaws.com/recipes", newRecipe, {
                     headers: {
                         Authorization: `Bearer ${accessToken}`,
                         user: user.email

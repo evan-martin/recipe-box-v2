@@ -24,7 +24,7 @@ function SimpleDialog(props) {
         (async () => {
             try {
                 const accessToken = await getAccessTokenSilently();
-                axios.delete(process.env.REACT_APP_API, {
+                axios.delete("https://34rz1edov8.execute-api.us-west-1.amazonaws.com/recipes", {
                     headers: {
                         Authorization: `Bearer ${accessToken}`,
                         user: user.email,

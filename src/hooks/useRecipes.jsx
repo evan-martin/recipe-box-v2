@@ -14,7 +14,7 @@ function useRecipes() {
     (async () => {
       try {
         const accessToken = await getAccessTokenSilently();
-        axios.get(process.env.REACT_APP_API, {
+        axios.get("https://34rz1edov8.execute-api.us-west-1.amazonaws.com/recipes", {
           headers: {
             Authorization: `Bearer ${accessToken}`,
             user: user.email
@@ -22,7 +22,7 @@ function useRecipes() {
         }).then(res => {
           setIsLoaded(true);
           setShoppingList(res.data['Items'].filter(object => object.id ==='shoppingList').shift().shoppingList);
-          setRecipes(res.data['Items'].filter(object => object.id !='shoppingList'));
+          setRecipes(res.data['Items'].filter(object => object.id !=='shoppingList'));
         })
 
       } catch (error) {
