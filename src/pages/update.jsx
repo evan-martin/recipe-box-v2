@@ -88,7 +88,7 @@ function Update({ recipe, setRecipe, recipes, setRecipes }) {
                         variant="outlined"
                         type="text"
                         name="tags"
-                        defaultValue={recipe.tags}
+                        defaultValue={recipe.tag}
                     />
 
                     <TextField
