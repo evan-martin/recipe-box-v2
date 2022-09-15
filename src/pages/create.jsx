@@ -22,7 +22,7 @@ function Create({ recipes, setRecipes }) {
         const ingredients = document.getElementById('ingredients').value;
         const method = document.getElementById('method').value;
         const notes = document.getElementById('notes').value;
-        const tags = document.getElementById('tags').value;
+        const tag = document.getElementById('tag').value;
         const newRecipe = {
             'id': new ObjectID().toString(),
             'name': name,
@@ -30,7 +30,7 @@ function Create({ recipes, setRecipes }) {
             'ingredients': ingredients,
             'method': method,
             'notes': notes,
-            'tag' : " " + tags,
+            'tag': " " + tag,
         };
 
         setRecipes([...recipes, newRecipe]);
@@ -55,18 +55,33 @@ function Create({ recipes, setRecipes }) {
     const handleScrape = (event) => {
         event.preventDefault();
         const url = event.target.elements.url.value;
-        axios.post("https://recipe-box-master-api.herokuapp.com/import", { url }).then((res) => {
-            if (res.data.error) {
-                setOpen(true)
-            } else {
-                document.getElementById('name').value = res.data.name
-                document.getElementById('imageURL').value = res.data.imageURL
-                document.getElementById('tags').value = res.data.tags
-                document.getElementById('ingredients').value = res.data.ingredients.join("\n")
-                document.getElementById('method').value = res.data.method.join("\n")
-                setUrl(document.getElementById('imageURL').value)
-            }
-        });
+
+        if (url) {
+            (async () => {
+                try {
+                    const accessToken = await getAccessTokenSilently();
+                    axios.post("https://34rz1edov8.execute-api.us-west-1.amazonaws.com/import", { url }, {
+                        headers: {
+                            Authorization: `Bearer ${accessToken}`,
+                            user: user.email
+                        },
+                    }).then((res) => {
+                        if (res.data.error) {
+                            setOpen(true)
+                        } else {
+                            document.getElementById('name').value = res.data.name
+                            document.getElementById('imageURL').value = res.data.imageURL
+                            document.getElementById('tag').value = res.data.tag
+                            document.getElementById('ingredients').value = res.data.ingredients.join("\n")
+                            document.getElementById('method').value = res.data.method.join("\n")
+                            setUrl(document.getElementById('imageURL').value)
+                        }
+                    });
+                } catch (error) {
+                }
+            })();
+
+        }
     }
 
     return (
@@ -123,12 +138,12 @@ function Create({ recipes, setRecipes }) {
 
                     <p>Add Tags separated by commas to make searching easier (eg apps, desert, bbq, etc...):</p>
 
-                    <CustomInput id="tags"
+                    <CustomInput id="tag"
                         margin="normal"
                         fullWidth
                         label="Search Tags"
                         type="text"
-                        name="tags"
+                        name="tag"
                         variant="outlined"
                         focused
                     />
