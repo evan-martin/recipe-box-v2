@@ -1,20 +1,24 @@
 .app{
     position: relative;
     min-height: 100vh;
-    font-family: "Cormorant Garamond", sans-serif;
-    /* background-color: var(--content-background);  */
-    background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.6)), url('./assets/bowl.jpg');
+    font-family: 'League Spartan', sans-serif;
+    /* background-image: linear-gradient(to right, #646464, #545454, #454545, #363636, #282828); */
+    background-image: url("./assets/bowl.jpg");
     background-size: cover;
     background-position-y: 50%;
     background-position-x: 50%;
     background-attachment: fixed;
-    display: flex;
+    /* display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: center; */
 }
 
 .content-container{
     padding-bottom: 6em;
+    width: 100vw;
+    /* display: flex;
+    flex-direction: column;
+    align-items: center; */
     /* background: url('./assets/bowl.jpg'); 
     color: var(--text);
     /* background-size: cover;

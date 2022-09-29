@@ -30,7 +30,7 @@ export default function UserDropdown() {
       }}
       transformOrigin={{
         vertical: "top",
-        horizontal: "right"
+        horizontal: "center"
       }}
       {...props}
     />

@@ -41,9 +41,7 @@ function Home({ recipes, setRecipe }) {
     return (
 
         <>
-            <div className='banner'></div>
             <div className='search-bar'>
-                {/* <h1>Recipe Box</h1> */}
                 <form onSubmit={handleSubmit}>
                     <CustomInput
                         id='search'

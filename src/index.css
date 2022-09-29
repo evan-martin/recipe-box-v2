@@ -5,6 +5,8 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background: rgb(40,40,40);
+
 }
 
 code {
@@ -12,7 +14,7 @@ code {
     monospace;
 }
 
-:root {
+/* :root {
   --background: #f7f6f3;
   --content-background: #d1d1d19c;
   --theme-opacity: 100%;
@@ -33,4 +35,4 @@ code {
   --text: #f7f6f3;
   --banner: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.6)), url("./assets/spices.jpg");
   --background-position-y: 50%;
-}
+} */
