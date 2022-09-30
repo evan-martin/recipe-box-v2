@@ -4,6 +4,7 @@ import { Divider, Button } from "@mui/material"
 import CheckboxList from "../components/checklist"
 import NutritionInfo from "../components/nutrition-info"
 import defaultRecipeImage from '../assets/default.jpg'
+import ReadActionBar from "../components/read-action-bar";
 import './page-styles/read.scss'
 
 function Read({ recipe, shoppingList, setShoppingList }) {
@@ -21,13 +22,18 @@ function Read({ recipe, shoppingList, setShoppingList }) {
     return (
         <div className="read-container">
             <div className="read-header-container">
-                <div className="read-image-container">
-                    <img className="read-image"
-                        src={validateImageURL(recipe.imageURL)}
-                        alt={recipe.name}
-                    />
+                <div className='read-image-title-container'>
+                    <div className="read-image-container">
+                        <img className="read-image"
+                            src={validateImageURL(recipe.imageURL)}
+                            alt={recipe.name}
+                        />
+                    </div>
+                    <h2 className="recipe-name">{recipe.name}</h2>
                 </div>
-                <h2 className="recipe-name">{recipe.name}</h2>
+                <div className='action-bar-container'>
+                    <ReadActionBar recipeID={recipe.id} />
+                </div>
             </div>
             <div className="ingredient-method-container">
                 <div className="ingredients-container">
@@ -51,12 +57,12 @@ function Read({ recipe, shoppingList, setShoppingList }) {
             <div className="nutrition-container">
                 <NutritionInfo />
             </div>
-            <div className="read-button-bar">
+            {/* <div className="read-button-bar">
                 <Link to={`/recipes/update/${recipe.id}`} style={{ textDecoration: "none" }}>
                     <Button variant="contained" color="primary">Edit</Button>
                 </Link>
                 <Button onClick={() => navigate(-1)} variant="contained" color="primary">Back</Button>
-            </div>
+            </div> */}
         </div>
     )
 }
