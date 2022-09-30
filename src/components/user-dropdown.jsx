@@ -1,6 +1,7 @@
 import * as React from 'react';
 import Menu from '@mui/material/Menu';
 import Typography from '@mui/material/Typography';
+import { Button } from '@mui/material';
 import AccountBoxIcon from '@mui/icons-material/AccountBox';
 import { styled } from "@mui/material/styles";
 import { useAuth0 } from "@auth0/auth0-react";
@@ -38,7 +39,7 @@ export default function UserDropdown() {
   ))(({ theme }) => ({
     "& .MuiPaper-root": {
       minWidth: 100,
-      backgroundColor: "#535353",
+      backgroundColor: "rgb(40, 40, 40)",
       color: "white",
       textAlign: "center"
     },
@@ -58,7 +59,7 @@ export default function UserDropdown() {
           <h2>{user.name}</h2>
           <p>{user.email}</p>
           <div className='logout-button'>
-            <Typography onClick={() => logout({ returnTo: window.location.origin })} sx={{ p: 2, cursor: 'pointer' }}>Log out</Typography>
+            <Button onClick={() => logout({ returnTo: window.location.origin })} variant="contained" color="primary" size="large" sx={{width:300}}> Log Out</Button>
           </div>
         </div>
       </StyledMenu>
