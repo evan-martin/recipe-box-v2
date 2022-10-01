@@ -7,9 +7,7 @@ import EditIcon from '@mui/icons-material/Edit';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import NoSleep from "nosleep.js";
 
-
 import './component-styles/read-action-bar.scss'
-
 
 export default function ReadActionBar({ recipeID }) {
     const [checked, setChecked] = React.useState(false);
@@ -17,10 +15,10 @@ export default function ReadActionBar({ recipeID }) {
 
     const handleChange = (event) => {
         setChecked(event.target.checked);
-        if (event.target.checked) {
-            noSleep.enable();
-          } else {
+        if (!event.target.checked) {
             noSleep.disable();
+          } else {
+            noSleep.enable();
           }
     };
 
