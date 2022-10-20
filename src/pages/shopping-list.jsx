@@ -79,6 +79,7 @@ export default function ShoppingList({ shoppingList, setShoppingList }) {
                         id='add-item'
                         fullWidth
                         margin="normal"
+                        autoComplete='off'
                     />
                     <Button variant='contained' type='submit'>Add Item</Button>
                 </form>
