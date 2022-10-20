@@ -9,17 +9,21 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogActions from '@mui/material/DialogActions';
 import { useAuth0 } from '@auth0/auth0-react';
+import LoadingButton from '@mui/lab/LoadingButton';
 
 function SimpleDialog(props) {
     const { onClose, open, recipe, recipes, setRecipes } = props;
     const { getAccessTokenSilently, user } = useAuth0();
     const navigate = useNavigate();
+    const [loading, setLoading] = React.useState(false);
+
 
     const handleClose = () => {
         onClose();
     };
 
     const handleDelete = () => {
+        setLoading(true);
         setRecipes(recipes.filter(item => item !== recipe));
         (async () => {
             try {
@@ -47,7 +51,7 @@ function SimpleDialog(props) {
             </DialogContent>
             <DialogActions>
                 <Button onClick={handleClose}>Cancel</Button>
-                <Button onClick={handleDelete} color="error">Delete </Button>
+                <LoadingButton onClick={handleDelete} color="error" loading={loading} >Delete </LoadingButton>
             </DialogActions>
         </Dialog>
     );

@@ -7,6 +7,7 @@ import { Button } from '@mui/material';
 import CustomInput from '../components/custom-input';
 import ErrorAlert from '../components/error-alert';
 import UploadWidget from '../components/image-upload';
+import LoadingButton from '@mui/lab/LoadingButton';
 import { ObjectID } from 'bson';
 
 function Create({ recipes, setRecipes }) {
@@ -14,6 +15,7 @@ function Create({ recipes, setRecipes }) {
     const navigate = useNavigate();
     const [open, setOpen] = useState(false);
     const [url, setUrl] = useState('');
+    const [loading, setLoading] = React.useState(false);
 
     const handleCreate = (event) => {
         event.preventDefault();
@@ -66,6 +68,7 @@ function Create({ recipes, setRecipes }) {
                             user: user.email
                         },
                     }).then((res) => {
+                        setLoading(false)
                         if (res.data.error) {
                             setOpen(true)
                         } else {
@@ -81,6 +84,8 @@ function Create({ recipes, setRecipes }) {
                 }
             })();
 
+        }else {
+            setLoading(false)
         }
     }
 
@@ -101,7 +106,7 @@ function Create({ recipes, setRecipes }) {
                         placeholder='Paste Recipe URL Here'
                     />
                     <ErrorAlert open={open} setOpen={setOpen} />
-                    <Button variant='contained' type='submit'>Import</Button>
+                    <LoadingButton variant='contained' type='submit' loading={loading} onClick={()=>setLoading(true)}>Import</LoadingButton>
                 </form>
                 <form onSubmit={handleCreate}>
                     <div className='name-container'>
@@ -194,7 +199,7 @@ function Create({ recipes, setRecipes }) {
                         <Link to={`/`} style={{ textDecoration: "none" }}>
                             <Button variant="contained" color='error'>Cancel</Button>
                         </Link>
-                        <Button variant="contained" type="submit">Create</Button>
+                        <LoadingButton variant="contained" type="submit" loading={loading} onClick={()=>setLoading(true)}>Create</LoadingButton>
                     </div>
                 </form>
 

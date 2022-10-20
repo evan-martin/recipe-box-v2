@@ -1,14 +1,19 @@
+import React from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import axios from "axios";
 import { TextField, Button } from '@mui/material';
 import { useAuth0 } from "@auth0/auth0-react";
 import DeleteModal from '../components/delete-modal';
+import LoadingButton from '@mui/lab/LoadingButton';
+
 import './page-styles/create-update.scss'
 
 function Update({ recipe, setRecipe, recipes, setRecipes }) {
     const { getAccessTokenSilently, user } = useAuth0();
     const navigate = useNavigate();
     const { id }= useParams();
+    const [loading, setLoading] = React.useState(false);
+
 
     const handleUpdate = (event) => {
         event.preventDefault();
@@ -132,7 +137,7 @@ function Update({ recipe, setRecipe, recipes, setRecipes }) {
 
                         <div className='button-group'>
                             <Button onClick={() => navigate(-1)} variant="contained" color="secondary">Cancel</Button>
-                            <Button type="submit" variant="contained">Update</Button>
+                            <LoadingButton type="submit" variant="contained" loading={loading} onClick={()=>setLoading(true)}>Update</LoadingButton>
                         </div>
                     </div>
                 </form>
