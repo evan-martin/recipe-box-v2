@@ -1,10 +1,10 @@
 .form-container {
-    padding: .5em;
+    // padding: .5em;
     display: flex;
     flex-direction: column;
     min-height: 92vh;
-    max-width: 1400px;
-    margin: 3em auto 3em auto;
+    width: 64em;
+    margin-top: 3em;
 
     .form-content {
         background-color: #f7f6f3;
@@ -37,9 +37,10 @@
     }
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 1000px) {
     .form-container {
-        margin: 1em 0 1em 0;
+        margin: 0em;
+        width: 100%;
 
         .form-content {
             padding: .5em

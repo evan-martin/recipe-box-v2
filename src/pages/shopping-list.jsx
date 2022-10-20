@@ -96,7 +96,7 @@ export default function ShoppingList({ shoppingList, setShoppingList }) {
 
                 <div className="button-bar">
                     <Button variant='contained' onClick={() => handleClear()}>Clear</Button>
-                    <Button variant='contained' onClick={() => handleClearAll()}>Clear All</Button>
+                    {/* <Button variant='contained' onClick={() => handleClearAll()}>Clear All</Button> */}
                 </div>
             </div>
         </div>
