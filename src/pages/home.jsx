@@ -63,7 +63,7 @@ function Home({ recipes, setRecipe }) {
                         }}
                         variant='outlined'
                         size='large'
-                        defaultValue={searchTerm.trim()}            
+                        defaultValue={searchTerm.trim()}
                         onChange={event => setSearchTerm(' ' + event.target.value)}
                     />
                 </form>
@@ -72,7 +72,7 @@ function Home({ recipes, setRecipe }) {
             <div className='grid'>
                 {filteredRecipes.map((recipe) => (
                     <div className='grid-item' key={recipe.id}>
-                        <RecipeCard recipe={recipe} setRecipe={setRecipe}/>
+                        <RecipeCard recipe={recipe} setRecipe={setRecipe} />
                     </div>
                 ))}
             </div>

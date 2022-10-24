@@ -84,7 +84,7 @@ function Create({ recipes, setRecipes }) {
                 }
             })();
 
-        }else {
+        } else {
             setLoading(false)
         }
     }
@@ -106,7 +106,7 @@ function Create({ recipes, setRecipes }) {
                         placeholder='Paste Recipe URL Here'
                     />
                     <ErrorAlert open={open} setOpen={setOpen} />
-                    <LoadingButton variant='contained' type='submit' loading={loading} onClick={()=>setLoading(true)}>Import</LoadingButton>
+                    <LoadingButton variant='contained' type='submit' loading={loading} onClick={() => setLoading(true)}>Import</LoadingButton>
                 </form>
                 <form onSubmit={handleCreate}>
                     <div className='name-container'>
@@ -199,7 +199,7 @@ function Create({ recipes, setRecipes }) {
                         <Link to={`/`} style={{ textDecoration: "none" }}>
                             <Button variant="contained" color='error'>Cancel</Button>
                         </Link>
-                        <LoadingButton variant="contained" type="submit" loading={loading} onClick={()=>setLoading(true)}>Create</LoadingButton>
+                        <LoadingButton variant="contained" type="submit" loading={loading} onClick={() => setLoading(true)}>Create</LoadingButton>
                     </div>
                 </form>
 

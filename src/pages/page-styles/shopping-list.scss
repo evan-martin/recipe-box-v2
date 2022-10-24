@@ -1,7 +1,6 @@
 .shopping-container {
     display: flex;
     flex-direction: column;
-    // min-height: 92vh;
     margin-top: 3em;
     width: 64em;
     font-family: 'League Spartan', sans-serif;
@@ -11,7 +10,6 @@
         background-color: #f7f6f3;
         padding: 1em 3em 3em 3em;
         min-height: 82vh;
-
 
         .add-bar {
             max-width: 50%;
@@ -50,7 +48,6 @@
     .shopping-container {
         margin: 0em;
         width: 100%;
-
 
         .shopping-content {
             padding: .5em;

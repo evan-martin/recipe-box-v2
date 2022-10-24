@@ -10,7 +10,7 @@ import ShoppingList from "./shopping-list";
 import Loading from '../components/loading'
 import Error from '../components/error'
 
-const Recipes = () => {
+const Router = () => {
 
     const { error, isLoaded, recipes, setRecipes, shoppingList, setShoppingList } = useRecipes();
     const [recipe, setRecipe] = useLocalStorage([]);
@@ -37,7 +37,7 @@ const Recipes = () => {
     };
 }
 
-export default withAuthenticationRequired(Recipes, {
+export default withAuthenticationRequired(Router, {
     onRedirecting: () => <Loading />,
 });
 

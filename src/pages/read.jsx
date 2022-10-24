@@ -1,6 +1,5 @@
 import React from "react"
-import { Link, useNavigate } from "react-router-dom"
-import { Divider, Button } from "@mui/material"
+import { Divider } from "@mui/material"
 import CheckboxList from "../components/checklist"
 import NutritionInfo from "../components/nutrition-info"
 import defaultRecipeImage from '../assets/default.jpg'
@@ -8,8 +7,6 @@ import ReadActionBar from "../components/read-action-bar";
 import './page-styles/read.scss'
 
 function Read({ recipe, shoppingList, setShoppingList }) {
-
-    const navigate = useNavigate();
 
     const validateImageURL = (imageURL) => {
         if (!imageURL) {
@@ -57,12 +54,6 @@ function Read({ recipe, shoppingList, setShoppingList }) {
             <div className="nutrition-container">
                 <NutritionInfo />
             </div>
-            {/* <div className="read-button-bar">
-                <Link to={`/recipes/update/${recipe.id}`} style={{ textDecoration: "none" }}>
-                    <Button variant="contained" color="primary">Edit</Button>
-                </Link>
-                <Button onClick={() => navigate(-1)} variant="contained" color="primary">Back</Button>
-            </div> */}
         </div>
     )
 }

@@ -5,13 +5,12 @@ import { TextField, Button } from '@mui/material';
 import { useAuth0 } from "@auth0/auth0-react";
 import DeleteModal from '../components/delete-modal';
 import LoadingButton from '@mui/lab/LoadingButton';
-
 import './page-styles/create-update.scss'
 
 function Update({ recipe, setRecipe, recipes, setRecipes }) {
     const { getAccessTokenSilently, user } = useAuth0();
     const navigate = useNavigate();
-    const { id }= useParams();
+    const { id } = useParams();
     const [loading, setLoading] = React.useState(false);
 
 
@@ -35,13 +34,13 @@ function Update({ recipe, setRecipe, recipes, setRecipes }) {
         };
 
         setRecipe(updatedRecipe);
-        setRecipes( Object.assign([], recipes, { [index]: updatedRecipe }));
+        setRecipes(Object.assign([], recipes, { [index]: updatedRecipe }));
 
         (async () => {
             try {
                 const accessToken = await getAccessTokenSilently();
                 axios.put("https://34rz1edov8.execute-api.us-west-1.amazonaws.com/recipes",
-                    updatedRecipe,{
+                    updatedRecipe, {
                     headers: {
                         Authorization: `Bearer ${accessToken}`,
                         user: user.email,
@@ -137,7 +136,7 @@ function Update({ recipe, setRecipe, recipes, setRecipes }) {
 
                         <div className='button-group'>
                             <Button onClick={() => navigate(-1)} variant="contained" color="secondary">Cancel</Button>
-                            <LoadingButton type="submit" variant="contained" loading={loading} onClick={()=>setLoading(true)}>Update</LoadingButton>
+                            <LoadingButton type="submit" variant="contained" loading={loading} onClick={() => setLoading(true)}>Update</LoadingButton>
                         </div>
                     </div>
                 </form>

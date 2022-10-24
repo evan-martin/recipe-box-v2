@@ -4,7 +4,7 @@ import {
   Navigate
 } from "react-router-dom"
 import { useAuth0 } from "@auth0/auth0-react";
-import Recipes from './pages/recipes';
+import Router from './pages/router';
 import Login from './pages/login';
 import Header from './components/header'
 import Footer from './components/footer'
@@ -29,7 +29,7 @@ function App() {
           <ScrollToTop>
             <Routes>
               <Route path="/" element={isAuthenticated ? <Navigate to="/recipes" /> : <Login />} />
-              <Route path="/recipes/*" element={<Recipes />} />
+              <Route path="/recipes/*" element={<Router />} />
             </Routes>
           </ScrollToTop>
         </div>

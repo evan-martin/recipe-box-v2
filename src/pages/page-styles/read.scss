@@ -34,7 +34,6 @@
 
       .recipe-name {
         padding-top: 5.25em;
-        // padding-left: 0.25em;
         font-family: 'Cormorant Garamond', sans-serif;
       }
     }
@@ -54,12 +53,10 @@
     margin-top: -7em;
     padding-left: 2em;
 
-
     .ingredients-container {
       width: 100%;
       padding-right: 2em;
       padding-bottom: 2em;
-
 
       .ingredients-content {
         line-height: 1.25em;
@@ -121,10 +118,10 @@
 }
 
 @media only screen and (max-width: 1200px) {
-  .read-container{
+  .read-container {
     max-width: 98vw;
     min-width: 80vw;
-  } 
+  }
 }
 
 @media only screen and (max-width: 600px) {
@@ -134,7 +131,6 @@
     .read-header-container {
       flex-direction: column;
       align-items: center;
-
 
       .read-image-title-container {
         flex-direction: column;
@@ -149,14 +145,13 @@
         }
       }
 
-      .action-bar-container{
+      .action-bar-container {
         padding-top: 0em;
         margin-top: -10em;
         padding-left: 0em;
         width: 95%;
       }
     }
-
 
     .ingredient-method-container {
       flex-direction: row;

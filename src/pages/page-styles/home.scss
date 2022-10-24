@@ -1,14 +1,11 @@
-.home-content{
-    // background-image: url("../../assets/pan.jpg");
+.home-content {
     background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("../../assets/spices.jpg");
     background-position-x: 50%;
-    // background-position-y: 50%;
     background-attachment: fixed;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
-
 
 .search-bar {
     display: flex;
@@ -57,17 +54,18 @@
 
 @media only screen and (max-width: 600px) {
 
-    .grid{
+    .grid {
         min-width: 100vw;
         padding-top: 0em;
 
-     .grid-item {
-        margin: 1em 0.5em 4em 0.5em;
-        width: 160px;
-        height: 220px;
-    }}
+        .grid-item {
+            margin: 1.5em 0.5em 4em 0.5em;
+            width: 160px;
+            height: 220px;
+        }
+    }
 
-    .search-bar{
+    .search-bar {
         max-width: 70vw;
         margin: auto;
         margin-bottom: 3em;

@@ -8,8 +8,6 @@
     justify-content: center;
     margin: auto;
 
-
-
     .login-content-wrapper {
         width: 300px;
         height: 250px;
@@ -20,14 +18,13 @@
         border-radius: 5px;
         box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 
-
         .title {
             margin-bottom: 1em;
             margin-top: 1em;
             font-family: 'Cormorant Garamond', sans-serif;
         }
 
-        .signup-button{
+        .signup-button {
             padding-top: 1em;
             cursor: pointer;
         }
