@@ -1,6 +1,8 @@
 .home-content{
-    background-image: url("../../assets/bowl.jpg");
+    // background-image: url("../../assets/pan.jpg");
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("../../assets/spices.jpg");
     background-position-x: 50%;
+    // background-position-y: 50%;
     background-attachment: fixed;
     display: flex;
     flex-direction: column;
@@ -32,8 +34,8 @@
 
     .grid-item {
         margin: 1em 1em 4em 1em;
-        width: 160px;
-        height: 200px;
+        width: 200px;
+        height: 300px;
         cursor: pointer;
     }
 }
@@ -44,16 +46,12 @@
     right: .5em;
 }
 
-@media only screen and (max-width: 1200px) {
+@media only screen and (max-width: 1000px) {
 
     .grid {
         max-width: 100vw;
         min-width: 98vw;
         min-height: 65vh;
-
-    }.grid-item {
-        width: 300px;
-        height: 275px;
     }
 }
 
@@ -65,8 +63,8 @@
 
      .grid-item {
         margin: 1em 0.5em 4em 0.5em;
-        // height: 275px;
-        // width: 100%;
+        width: 160px;
+        height: 220px;
     }}
 
     .search-bar{
