@@ -71,8 +71,7 @@
           .checkbox {
             margin-top: .25em;
             margin-left: 0em;
-            width: auto;
-            flex-basis: 13px;
+            flex-shrink: 0;
           }
 
           .check-label {
