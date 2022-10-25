@@ -25,7 +25,7 @@ export default function CheckboxList({ ingredientArray, shoppingList, setShoppin
     };
 
     const handleAdd = () => {
-        if(checked.length != 0){
+        if(checked.length !== 0){
             setOpen(true);
         }
         setShoppingList(removeDuplicates([...shoppingList, ...checked]))

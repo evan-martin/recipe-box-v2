@@ -1,8 +1,6 @@
 import * as React from 'react';
 import Menu from '@mui/material/Menu';
-import Typography from '@mui/material/Typography';
 import { Button } from '@mui/material';
-import AccountBoxIcon from '@mui/icons-material/AccountBox';
 import { styled } from "@mui/material/styles";
 import { useAuth0 } from "@auth0/auth0-react";
 import Avatar from '@mui/material/Avatar';
@@ -12,9 +10,6 @@ export default function UserDropdown() {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
   const { logout, user } = useAuth0();
-
-
-
 
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
@@ -47,7 +42,6 @@ export default function UserDropdown() {
 
   return (
     <div>
-      {/* <AccountBoxIcon onClick={handleClick} /> */}
       <Avatar alt='user' src={user.picture} sx={{ width: 24, height: 24 }} onClick={handleClick} />
       <StyledMenu
         anchorEl={anchorEl}
@@ -55,7 +49,7 @@ export default function UserDropdown() {
         onClose={handleClose}
       >
         <div className='dropdown'>
-          <img src={user.picture} />
+          <img src={user.picture} alt="user-avatar" />
           <h2>{user.name}</h2>
           <p>{user.email}</p>
           <div className='logout-button'>

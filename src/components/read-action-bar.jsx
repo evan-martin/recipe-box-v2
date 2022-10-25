@@ -4,11 +4,8 @@ import FormHelperText from '@mui/material/FormHelperText';
 import Switch from '@mui/material/Switch';
 import Fab from "@mui/material/Fab"
 import EditIcon from '@mui/icons-material/Edit';
-import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import NoSleep from "nosleep.js";
-
 import './component-styles/read-action-bar.scss'
-import { useEffect } from 'react';
 
 export default function ReadActionBar({ recipeID }) {
     const [checked, setChecked] = React.useState(false);
@@ -18,9 +15,9 @@ export default function ReadActionBar({ recipeID }) {
         setChecked(event.target.checked);
         if (event.target.checked) {
             noSleep.enable();
-          } else {
+        } else {
             noSleep.disable();
-          }
+        }
     };
 
     return (

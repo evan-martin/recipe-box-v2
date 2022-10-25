@@ -17,7 +17,6 @@ function SimpleDialog(props) {
     const navigate = useNavigate();
     const [loading, setLoading] = React.useState(false);
 
-
     const handleClose = () => {
         onClose();
     };

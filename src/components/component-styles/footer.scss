@@ -1,7 +1,7 @@
 .footer {
     display: flex;
     justify-content: space-between;
-    background-color: rgb(40,40,40);
+    background-color: rgb(40, 40, 40);
     position: absolute;
     bottom: 0;
     width: 100%;
@@ -9,6 +9,7 @@
     z-index: 2;
     align-items: center;
     margin-top: 6em;
+    font-family: 'Cormorant Garamond', sans-serif;
 
     .logo {
         margin-left: 3em;
@@ -18,15 +19,11 @@
         a {
             display: flex;
             align-items: center;
-            color: #f7f6f3;
             padding: 3px;
-
-            h4 {
-                padding-right: 0.5em;
-            }
+            color: #f7f6f3;
         }
+
         p {
-            
             padding-right: 0.5em;
         }
     }

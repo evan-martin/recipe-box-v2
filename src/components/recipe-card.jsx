@@ -4,18 +4,18 @@ import './component-styles/recipe-card.scss'
 
 function RecipeCard({ recipe, setRecipe }) {
 
-    const validateImageURL = (imageURL) => {
-        if (!imageURL) {
-          return defaultRecipeImage
-        } else return imageURL
-      };
+  const validateImageURL = (imageURL) => {
+    if (!imageURL) {
+      return defaultRecipeImage
+    } else return imageURL
+  };
 
-    return (
-        <Link to={recipe.id} onClick={() => { setRecipe(recipe) }} style={{ textDecoration: 'none' }} >
-            <img className='card-image' src={validateImageURL(recipe.imageURL)} alt='recipe' />
-            <p className='card-title'>{recipe.name}</p>
-        </Link>
-    )
+  return (
+    <Link to={recipe.id} onClick={() => { setRecipe(recipe) }} style={{ textDecoration: 'none' }} >
+      <img className='card-image' src={validateImageURL(recipe.imageURL)} alt='recipe' />
+      <p className='card-title'>{recipe.name}</p>
+    </Link>
+  )
 }
 
 export default RecipeCard

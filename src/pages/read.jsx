@@ -1,7 +1,6 @@
 import React from "react"
 import { Divider } from "@mui/material"
 import CheckboxList from "../components/checklist"
-import NutritionInfo from "../components/nutrition-info"
 import defaultRecipeImage from '../assets/default.jpg'
 import ReadActionBar from "../components/read-action-bar";
 import './page-styles/read.scss'
@@ -50,9 +49,6 @@ function Read({ recipe, shoppingList, setShoppingList }) {
                 <h3>Notes:</h3>
                 <Divider />
                 <p className="notes">{recipe.notes}</p>
-            </div>
-            <div className="nutrition-container">
-                <NutritionInfo />
             </div>
         </div>
     )
