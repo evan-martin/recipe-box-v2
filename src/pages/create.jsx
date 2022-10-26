@@ -17,8 +17,8 @@ function Create({ recipes, setRecipes }) {
     const [url, setUrl] = useState('');
     const [loading, setLoading] = React.useState(false);
 
-    const handleCreate = (event) => {
-        event.preventDefault();
+    const handleCreate = () => {
+        setLoading(true);
         const name = document.getElementById('name').value;
         const imageURL = url;
         const ingredients = document.getElementById('ingredients').value;
@@ -54,9 +54,9 @@ function Create({ recipes, setRecipes }) {
 
     }
 
-    const handleScrape = (event) => {
-        event.preventDefault();
-        const url = event.target.elements.url.value;
+    const handleScrape = () => {
+        setLoading(true);
+        const url = document.getElementById('url').value;
 
         if (url) {
             (async () => {
@@ -94,7 +94,7 @@ function Create({ recipes, setRecipes }) {
         <div className='form-container'>
             <div className='form-content'>
                 <h2>New Recipe</h2>
-                <form className='import-bar' onSubmit={handleScrape}>
+                <form className='import-bar'>
                     <CustomInput
                         fullWidth
                         id="url"
@@ -106,9 +106,9 @@ function Create({ recipes, setRecipes }) {
                         placeholder='Paste Recipe URL Here'
                     />
                     <ErrorAlert open={open} setOpen={setOpen} />
-                    <LoadingButton variant='contained' type='submit' loading={loading} onClick={() => setLoading(true)}>Import</LoadingButton>
+                    <LoadingButton variant='contained' loading={loading} onClick={() => handleScrape()}>Import</LoadingButton>
                 </form>
-                <form onSubmit={handleCreate}>
+                <form>
                     <div className='name-container'>
                         <CustomInput
                             fullWidth
@@ -138,12 +138,13 @@ function Create({ recipes, setRecipes }) {
 
 
                     <p>Image Preview:</p>
-                    <img className='image-preview' src={url} alt='' />
+                    <img className='image-preview' src={url} alt='recipe-preview' />
 
 
                     <p>Add Tags separated by commas to make searching easier (eg apps, desert, bbq, etc...):</p>
 
-                    <CustomInput id="tag"
+                    <CustomInput
+                        id="tag"
                         margin="normal"
                         fullWidth
                         label="Search Tags"
@@ -166,8 +167,6 @@ function Create({ recipes, setRecipes }) {
                         focused
                         required={true}
                     />
-
-
 
                     <CustomInput
                         id='method'
@@ -199,7 +198,7 @@ function Create({ recipes, setRecipes }) {
                         <Link to={`/`} style={{ textDecoration: "none" }}>
                             <Button variant="contained" color='error'>Cancel</Button>
                         </Link>
-                        <LoadingButton variant="contained" type="submit" loading={loading} onClick={() => setLoading(true)}>Create</LoadingButton>
+                        <LoadingButton variant="contained" loading={loading} onClick={() => handleCreate()}>Create</LoadingButton>
                     </div>
                 </form>
 

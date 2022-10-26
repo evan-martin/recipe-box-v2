@@ -13,16 +13,15 @@ function Update({ recipe, setRecipe, recipes, setRecipes }) {
     const { id } = useParams();
     const [loading, setLoading] = React.useState(false);
 
-
-    const handleUpdate = (event) => {
-        event.preventDefault();
+    const handleUpdate = () => {
+        setLoading(true);
         const index = recipes.findIndex(recipe => recipe.id === id);
-        let name = event.target.elements.name.value;
-        let imageURL = event.target.elements.imageURL.value;
-        let ingredients = event.target.elements.ingredients.value;
-        let method = event.target.elements.method.value;
-        let notes = event.target.elements.notes.value;
-        let tags = event.target.elements.tags.value;
+        let name = document.getElementById('name').value;
+        let imageURL = document.getElementById('imageURL').value;
+        let ingredients = document.getElementById('ingredients').value;
+        let method = document.getElementById('method').value;
+        let notes = document.getElementById('notes').value;
+        let tags = document.getElementById('tags').value;
         const updatedRecipe = {
             'id': recipe.id,
             'name': name,
@@ -58,7 +57,7 @@ function Update({ recipe, setRecipe, recipes, setRecipes }) {
         <div className='form-container'>
             <div className='form-content'>
                 <h2>Editing {recipe.name}</h2>
-                <form onSubmit={handleUpdate}>
+                <form >
 
                     <div className='name-container'>
                         <TextField
@@ -96,6 +95,7 @@ function Update({ recipe, setRecipe, recipes, setRecipes }) {
                     />
 
                     <TextField
+                        id="ingredients"
                         margin="normal"
                         fullWidth
                         label="Ingredients"
@@ -109,6 +109,7 @@ function Update({ recipe, setRecipe, recipes, setRecipes }) {
                     />
 
                     <TextField
+                        id="method"
                         margin="normal"
                         fullWidth
                         label="Method"
@@ -121,6 +122,7 @@ function Update({ recipe, setRecipe, recipes, setRecipes }) {
                     />
 
                     <TextField
+                        id="notes"
                         margin="normal"
                         fullWidth
                         label="Notes"
@@ -136,7 +138,7 @@ function Update({ recipe, setRecipe, recipes, setRecipes }) {
 
                         <div className='button-group'>
                             <Button onClick={() => navigate(-1)} variant="contained" color="secondary">Cancel</Button>
-                            <LoadingButton type="submit" variant="contained" loading={loading} onClick={() => setLoading(true)}>Update</LoadingButton>
+                            <LoadingButton variant="contained" loading={loading} onClick={() => handleUpdate()}>Update</LoadingButton>
                         </div>
                     </div>
                 </form>
