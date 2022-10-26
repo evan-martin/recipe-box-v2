@@ -11,14 +11,20 @@
 
         .import-bar {
             max-width: 800px;
+            margin-bottom: 1em;
         }
 
         .name-container {
             max-width: 800px;
+            margin-bottom: 1em;
         }
 
-        .image-preview {
-            max-width: 300px;
+        .image-container {
+            margin: 1em 0 1em 0;
+
+            .image-preview {
+                max-width: 300px;
+            }
         }
 
         .button-bar {

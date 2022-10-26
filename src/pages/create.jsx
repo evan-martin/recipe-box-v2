@@ -120,25 +120,22 @@ function Create({ recipes, setRecipes }) {
                             required={true}
                         />
                     </div>
-
-                    <UploadWidget setUrl={setUrl} />
-
-                    <p>Or Copy & Paste URL:</p>
-                    <CustomInput
-                        id="imageURL"
-                        margin="normal"
-                        label="Image Url"
-                        fullWidth
-                        variant="outlined"
-                        type="text"
-                        name="imageURL"
-                        focused
-                        onChange={event => setUrl(event.target.value)}
-                    />
-
-                    <img className='image-preview' src={url} alt='Preview:' />
-
-                    <p>Add Tags separated by commas to make searching easier (eg apps, desert, bbq, etc...):</p>
+                    <div className='image-container'>
+                        <UploadWidget setUrl={setUrl} />
+                        <CustomInput
+                            id="imageURL"
+                            margin="normal"
+                            label="Image Url"
+                            fullWidth
+                            variant="outlined"
+                            type="text"
+                            name="imageURL"
+                            focused
+                            placeholder='Upload Image or Copy and Paste URL Here'
+                            onChange={event => setUrl(event.target.value)}
+                        />
+                        <img className='image-preview' src={url} alt='Preview:' />
+                    </div>
 
                     <CustomInput
                         id="tag"
@@ -149,6 +146,7 @@ function Create({ recipes, setRecipes }) {
                         name="tag"
                         variant="outlined"
                         focused
+                        placeholder='Add Tags separated by commas to make searching easier (eg apps, desert, bbq, etc...)'
                     />
 
                     <CustomInput
@@ -162,6 +160,7 @@ function Create({ recipes, setRecipes }) {
                         rows={20}
                         variant="outlined"
                         focused
+                        placeholder='Enter Ingredients One Per Line'
                         required={true}
                     />
 

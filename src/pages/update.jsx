@@ -2,11 +2,12 @@ import React from 'react';
 import { useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import axios from "axios";
-import { TextField, Button } from '@mui/material';
+import { Button } from '@mui/material';
 import { useAuth0 } from "@auth0/auth0-react";
 import DeleteModal from '../components/delete-modal';
 import LoadingButton from '@mui/lab/LoadingButton';
 import UploadWidget from '../components/image-upload';
+import CustomInput from '../components/custom-input';
 import './page-styles/create-update.scss'
 
 function Update({ recipe, setRecipe, recipes, setRecipes }) {
@@ -63,7 +64,8 @@ function Update({ recipe, setRecipe, recipes, setRecipes }) {
                 <form >
 
                     <div className='name-container'>
-                        <TextField
+                        <CustomInput
+                            fullWidth
                             id="name"
                             margin="normal"
                             label="Name"
@@ -72,27 +74,30 @@ function Update({ recipe, setRecipe, recipes, setRecipes }) {
                             name="name"
                             defaultValue={recipe.name}
                             required={true}
+                            focused
                         />
                     </div>
 
-                    <UploadWidget setUrl={setUrl} />
-                    
-                    <p>Or Copy & Paste URL:</p>
-                    <TextField
-                        id="imageURL"
-                        margin="normal"
-                        label="Image Url"
-                        fullWidth
-                        variant="outlined"
-                        type="text"
-                        name="imageURL"
-                        defaultValue={recipe.imageURL}
-                        onChange={event => setUrl(event.target.value)}
-                    />
+                    <div className='image-container'>
+                        <UploadWidget setUrl={setUrl} />
+                        <CustomInput
+                            id="imageURL"
+                            margin="normal"
+                            label="Image Url"
+                            fullWidth
+                            variant="outlined"
+                            type="text"
+                            name="imageURL"
+                            focused
+                            placeholder='Upload Image or Copy and Paste URL Here'
+                            defaultValue={recipe.imageURL}
+                            onChange={event => setUrl(event.target.value)}
+                        />
 
-                    <img className='image-preview' src={url} alt='Preview:' />
+                        <img className='image-preview' src={url} alt='Preview:' />
+                    </div>
 
-                    <TextField
+                    <CustomInput
                         id="tags"
                         margin="normal"
                         label="Tags"
@@ -100,10 +105,12 @@ function Update({ recipe, setRecipe, recipes, setRecipes }) {
                         variant="outlined"
                         type="text"
                         name="tags"
+                        focused
+                        placeholder='Add Tags separated by commas to make searching easier (eg apps, desert, bbq, etc...)'
                         defaultValue={recipe.tag}
                     />
 
-                    <TextField
+                    <CustomInput
                         id="ingredients"
                         margin="normal"
                         fullWidth
@@ -113,11 +120,13 @@ function Update({ recipe, setRecipe, recipes, setRecipes }) {
                         multiline
                         rows={20}
                         variant="outlined"
+                        focused
+                        placeholder='Enter Ingredients One Per Line'
                         defaultValue={recipe.ingredients}
                         required={true}
                     />
 
-                    <TextField
+                    <CustomInput
                         id="method"
                         margin="normal"
                         fullWidth
@@ -127,10 +136,11 @@ function Update({ recipe, setRecipe, recipes, setRecipes }) {
                         multiline
                         rows={20}
                         variant="outlined"
+                        focused
                         defaultValue={recipe.method}
                     />
 
-                    <TextField
+                    <CustomInput
                         id="notes"
                         margin="normal"
                         fullWidth
@@ -140,6 +150,7 @@ function Update({ recipe, setRecipe, recipes, setRecipes }) {
                         multiline
                         rows={10}
                         variant="outlined"
+                        focused
                         defaultValue={recipe.notes}
                     />
                     <div className='button-bar'>
