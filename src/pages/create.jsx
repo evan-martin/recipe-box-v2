@@ -136,10 +136,7 @@ function Create({ recipes, setRecipes }) {
                         onChange={event => setUrl(event.target.value)}
                     />
 
-
-                    <p>Image Preview:</p>
-                    <img className='image-preview' src={url} alt='recipe-preview' />
-
+                    <img className='image-preview' src={url} alt='Preview:' />
 
                     <p>Add Tags separated by commas to make searching easier (eg apps, desert, bbq, etc...):</p>
 
